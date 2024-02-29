@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Interactive Quiz Game</title>
+    <link href="style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="pointCont">
+        <div class="point">0</div>
+        <div class="line"></div>
+        <div class="wrong">0</div>
+    </div>
+
+
+
+    <div class="container">
+        <div class="presentation">
+            <div class="question">
+                <h2 id="question">Which HTML attribute specifies an alternate text for an image, if the image cannot be
+                    displayed?</h1>
+            </div>
+        </div>
+        <div class='answer-box'>
+            <div class="answer-row">
+                <button onmouseover="disappear()" onmouseout="appear()" id="a1" class="answer a1">Answer 1</button>
+                <button onmouseover="disappear()" onmouseout="appear()" id="a2" class="answer a2">Answer 2</button>
+            </div>
+            <div class="answer-row">
+                <button onmouseover="disappear()" onmouseout="appear()" id="a3" class="answer a1">Answer 3</button>
+                <button onmouseover="disappear()" onmouseout="appear()" id="a4" class="answer a2">Answer 4</button>
+            </div>
+        </div>
+
+    </div>
+    <div id="winner">
+        <h2>
+            <div id="winSelect" style="font-size: 70px;"></div>
+        </h2>
+
+        <button class="final" onclick="again()">Play again</button>
+
+
+
+    </div>
+    <div class=selector>
+
+        <select id="topic-select">
+            <option value="science">Science</option>
+            <option value="code">Code</option>
+            <option value="general_knowledge">General Knowledge</option>
+            <option value="politics">Politics</option>
+
+            <option value="business">Business</option>
+            <option value="math">Math</option>
+            <option value="unusual_food">Weird Foods</option>
+            <option value="royals">Strange Royals</option>
+        </select>
+        <button onclick="redirectToPage()">Go</button>
+        <button onclick="goHome()">HOME</button>
+    </div>
+
+    <script>
+        function goHome() {
+            window.location.href = '/home_page.html';
+
+        }
+        function disappear() {
+            document.querySelectorAll('.answer').forEach(function (button) {
+                button.style.opacity = '0.5';
+            });
+
+            event.currentTarget.style.opacity = '1';
+        }
+
+        function appear() {
+            document.querySelectorAll('.answer').forEach(function (button) {
+                button.style.opacity = '1';
+            });
+        }
+
+        let lastIndex = -1;
+
+
+
+        let qList = [
+            "What is the fourth state of matter?",
+            "What is the chemical symbol for gold?",
+            "Which blood cells are responsible for producing antibodies?",
+            "What is the speed of light in a vacuum?",
+            "Who formulated the laws of motion and universal gravitation?",
+            "What is the most abundant gas in the Earth's atmosphere?",
+            "Which part of the brain is responsible for processing visual information?",
+            "What is the hardest known natural material?",
+            "What principle explains why an airplane wing generates lift?",
+            "What is the pH level of pure water at room temperature?",
+            "What is the name of the galaxy that contains our Solar System?",
+            "Who discovered penicillin?",
+            "What is the unit of electric current?",
+            "Which element is named after the creator of the periodic table?",
+            "What organ in the human body regulates metabolism?",
+            "Which law states that the total entropy of an isolated system can never decrease over time?",
+            "What type of bond involves the sharing of electron pairs between atoms?",
+            "What is the powerhouse of the cell?",
+            "Who is known as the father of modern chemistry?",
+            "What type of waves are used in standard WiFi?",
+            "What phenomenon describes the bending of light as it passes from one medium to another?",
+            "What is the primary element found in the sun?",
+            "Which planet in our solar system is known for its prominent ring system?",
+            "What is the smallest unit of life that can replicate independently?",
+            "Who is credited with inventing the first practical telephone?",
+            "What is the term for the study of earthquakes and the waves they produce?",
+            "What is the chemical formula for table salt?",
+            "Who formulated the theory of evolution by natural selection?",
+            "What type of animal is a shark?",
+            "In computer science, what does 'AI' stand for?",
+            "What is the main gas found in the atmosphere of Mars?",
+            "What type of celestial body is the Sun?",
+            "Who is known for his uncertainty principle in quantum mechanics?",
+            "What is the most abundant element in the Earth's crust?",
+            "What is the scientific study of the behavior, structure, physiology, classification, and distribution of animals?",
+            "Who proposed the three laws of planetary motion?",
+            "What is the name given to the reaction that powers the Sun?",
+            "What is the term for a group of atoms bonded together?",
+            "What is the name of the scale used to measure the hardness of minerals?",
+            "Which branch of biology deals with the study of genes, genetic variation, and heredity in organisms?",
+            "What gas is commonly known as laughing gas?",
+            "Who is known as the father of modern physics?",
+            "What is the term for the amount of matter in an object?",
+            "Which law of motion states that for every action, there is an equal and opposite reaction?",
+            "What is the largest organ in the human body?"
+        ];
+
+        let aList = [
+            ["Plasma", "Gas", "Liquid", "Solid"],
+            ["Au", "Ag", "Fe", "Pb"],
+            ["Lymphocytes", "Erythrocytes", "Platelets", "Monocytes"],
+            [" ≈ 300,000,000 m/s", "≈ 200,000,000 m/s", " ≈ 150,000,000 m/s", " ≈ 100,000,000 m/s"],
+            ["Isaac Newton", "Albert Einstein", "Galileo Galilei", "Nikola Tesla"],
+            ["Nitrogen", "Oxygen", "Carbon Dioxide", "Hydrogen"],
+            ["Occipital lobe", "Frontal lobe", "Parietal lobe", "Temporal lobe"],
+            ["Diamond", "Graphene", "Boron Nitride", "Sapphire"],
+            ["Bernoulli's Principle", "Newton's Third Law", "Pascal's Law", "Archimedes' Principle"],
+            ["7", "5", "9", "10"],
+            ["The Milky Way", "Andromeda", "Messier 81", "Whirlpool"],
+            ["Alexander Fleming", "Marie Curie", "Louis Pasteur", "Gregor Mendel"],
+            ["Ampere", "Watt", "Volt", "Ohm"],
+            ["Mendelevium", "Curium", "Gallium", "Rutherfordium"],
+            ["Thyroid gland", "Pancreas", "Liver", "Adrenal gland"],
+            ["Second Law of Thermodynamics", "First Law of Thermodynamics", "Newton's Law of Cooling", "Law of Conservation of Energy"],
+            ["Covalent bond", "Ionic bond", "Hydrogen bond", "Metallic bond"],
+            ["Mitochondria", "Ribosome", "Nucleus", "Endoplasmic Reticulum"],
+            ["Antoine Lavoisier", "Dmitri Mendeleev", "John Dalton", "Robert Boyle"],
+            ["Radio waves", "Microwaves", "Infrared waves", "Ultraviolet waves"],
+            ["Refraction", "Reflection", "Diffraction", "Dispersion"],
+            ["Hydrogen", "Helium", "Oxygen", "Carbon"],
+            ["Saturn", "Jupiter", "Uranus", "Neptune"],
+            ["Cell", "Atom", "Molecule", "Organism"],
+            ["Alexander Graham Bell", "Thomas Edison", "Nikola Tesla", "Guglielmo Marconi"],
+            ["Seismology", "Geology", "Volcanology", "Meteorology"],
+            ["NaCl", "H2O", "CO2", "C6H12O6"],
+            ["Charles Darwin", "Gregor Mendel", "Alfred Wallace", "Jean-Baptiste Lamarck"],
+            ["Fish", "Mammal", "Reptile", "Amphibian"],
+            ["Artificial Intelligence", "Automated Input", "Analog Interface", "Advanced Imaging"],
+            ["Carbon Dioxide", "Nitrogen", "Oxygen", "Methane"],
+            ["Star", "Planet", "Comet", "Asteroid"],
+            ["Werner Heisenberg", "Albert Einstein", "Niels Bohr", "Erwin Schrödinger"],
+            ["Oxygen", "Silicon", "Aluminum", "Iron"],
+            ["Zoology", "Botany", "Ecology", "Paleontology"],
+            ["Johannes Kepler", "Galileo Galilei", "Isaac Newton", "Tycho Brahe"],
+            ["Nuclear Fusion", "Nuclear Fission", "Chemical Reaction", "Magnetic Confinement"],
+            ["Molecule", "Compound", "Element", "Ion"],
+            ["Mohs scale", "Richter scale", "Brinell scale", "Shore scale"],
+            ["Genetics", "Evolutionary Biology", "Microbiology", "Ethology"],
+            ["Nitrous Oxide", "Carbon Monoxide", "Helium", "Methane"],
+            ["Albert Einstein", "Isaac Newton", "Galileo Galilei", "Stephen Hawking"],
+            ["Mass", "Weight", "Density", "Volume"],
+            ["Newton's Third Law", "Newton's First Law", "Newton's Second Law", "The Law of Conservation of Momentum"],
+            ["Skin", "Liver", "Heart", "Brain"]
+        ];
+
+
+
+        function redirectToPage() {
+            var selectedTopic = document.getElementById("topic-select").value;
+            window.location.href = selectedTopic + ".html";
+        }
+
+
+        function getRandomNumber(lastIndex) {
+            let newIndex;
+            do {
+                newIndex = Math.floor(Math.random() * 45);
+            } while (newIndex === lastIndex);
+            return newIndex;
+        }
+
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+        function again() {
+            document.getElementById("winner").style.visibility = "hidden";
+            let nUmElement = document.querySelector(".point");
+            nUmElement.textContent = 0
+            let numElement = document.querySelector(".wrong");
+            numElement.textContent = 0;
+        }
+
+        function displayQuestion() {
+            const index = getRandomNumber(lastIndex);
+            lastIndex = index;
+            const area = document.getElementById("question");
+            area.textContent = qList[index];
+
+            const answers = [...aList[index]]; // Create a copy of the answers array
+            shuffleArray(answers); // Shuffle the answers
+
+            // Assign shuffled answers to buttons and add 'correct' class to the correct one
+            for (let i = 0; i < 4; i++) {
+                const button = document.getElementById('a' + (i + 1));
+                button.textContent = answers[i];
+                button.classList.remove('correct'); // Remove the class if it was previously added
+                if (answers[i] === aList[index][0]) { // Check if it's the correct answer
+                    button.classList.add('correct');
+                }
+            }
+        }
+
+
+
+
+
+
+
+        function add() {
+            let numElement = document.querySelector(".point");
+            let num = parseFloat(numElement.textContent);
+            num = num + 1;
+            numElement.textContent = num;
+
+            if (num >= 10) {
+                document.getElementById("winner").style.visibility = "visible"; // Corrected the typo here
+                document.getElementById("winSelect").textContent = "You win";
+
+            }
+        }
+        function min() {
+
+            let numElement = document.querySelector(".point");
+            let num = parseFloat(numElement.textContent);
+            if (num > 0) {
+                num = num - 1;
+                numElement.textContent = num;
+            }
+        }
+        function addwrong() {
+            let numElement = document.querySelector(".wrong");
+            let num = parseFloat(numElement.textContent);
+            num = num + 1;
+            numElement.textContent = num;
+
+
+            if (num >= 10) {
+                document.getElementById("winner").style.visibility = "visible"; // Corrected the typo here
+                document.getElementById("winSelect").textContent = "You lose";
+            }
+        }
+
+
+
+        document.addEventListener("click", function (event) {
+            if (event.target.classList.contains("correct") && event.target.classList.contains("answer")) {
+                console.log('Correct answer clicked!');
+                add()
+                displayQuestion()
+            } else if (event.target.classList.contains("answer")) {
+                console.log('Incorrect answer clicked!');
+                addwrong()
+                displayQuestion();
+            }
+
+
+
+        });
+
+
+
+
+
+
+
+
+
+
+        document.addEventListener('keydown', function (event) {
+
+            if (event.key === 'q') {
+                console.log('The "q" key was pressed.');
+                displayQuestion()
+            }
+            if (event.key === 'p') {
+                console.log('The "p" key was pressed.');
+                add()
+            }
+            if (event.key === 'Backspace') {
+                console.log('The "Backspace" key was pressed.');
+                min()
+            }
+        });
+
+        displayQuestion()
+
+
+    </script>
+
+
+</body>
+
+</html>

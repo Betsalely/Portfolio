@@ -1,0 +1,274 @@
+div {
+    border: 1px solid black;
+}
+
+body {
+    background: linear-gradient(90deg, rgba(29, 190, 168, 1) 17%, rgba(0, 212, 255, 1) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    width: min(80vw, 800px);
+    height: min(80vh, 600px);
+    background-image: url("quizzy.jpg");
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Add these styles to your style.css file */
+/* Add these styles to your style.css file */
+.correct-answer {
+    background-color: rgb(41, 202, 41);
+    transition: background-color 1s ease;
+    /* Transition background color change over 0.5 seconds */
+}
+
+.wrong-answer {
+    background-color: red;
+    transition: background-color 1s ease;
+    /* Transition background color change over 0.5 seconds */
+}
+
+
+.presentation,
+.question {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 50%;
+    margin: 10px;
+}
+
+h2 {
+    color: white;
+    padding: 0 5px;
+    text-align: center;
+}
+
+.question,
+.answer {
+    border: 1px solid black;
+    margin: 5px;
+    padding: 10px;
+}
+
+.answer-box {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    align-items: center;
+    margin-top: 10%;
+    background: linear-gradient(90deg, rgba(254, 250, 54, 1) 17%, rgba(194, 246, 53, 1) 100%);
+    border-radius: 25px;
+    box-shadow: -1px 1px 60px 18px rgba(254, 250, 54, 0.75);
+}
+
+.answer-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 5px;
+    width: 90%;
+}
+
+.answer {
+    padding: 10px;
+    width: min(150px, 100%);
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: white;
+}
+
+.a2 {
+    margin: 5px 0 5px 65px;
+}
+
+.a1 {
+    margin: 5px 65px 5px 0px;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+
+    /* Adjustments for medium-sized screens */
+    .presentation,
+    .question {
+        width: 70%;
+        height: 40%;
+    }
+
+    .answer-box {
+        width: 60%;
+    }
+
+    .answer-box {
+        margin-top: 20%;
+    }
+}
+
+.selector {
+    position: absolute;
+    top: 0;
+    Left: 0;
+}
+
+@media (max-width: 992px) {
+
+    /* Adjustments for small to medium-sized screens */
+    .container {
+        width: 85vw;
+        height: 85vh;
+    }
+
+    .presentation,
+    .question {
+        width: 80%;
+        height: 35%;
+    }
+
+    .answer-box {
+        margin-top: 20%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Adjustments for tablet screens */
+    .container {
+        width: 90vw;
+        height: 90vh;
+    }
+
+    .answer-box {
+        width: 80%;
+    }
+
+    .answer {
+        font-size: smaller;
+    }
+}
+
+@media (max-width: 576px) {
+
+    /* Adjustments for mobile screens */
+    .container {
+        width: 95vw;
+        height: 95vh;
+    }
+
+    .answer-box {
+        width: 90%;
+        margin-top: 15%;
+    }
+
+    .answer-row {
+        flex-direction: column;
+    }
+
+    .answer {
+        width: 80%;
+        margin-bottom: 10px;
+    }
+
+    .a1,
+    .a2 {
+        margin: 5px 0;
+    }
+}
+
+@media (max-width: 510px) {
+
+    /* Adjustments for mobile screens */
+    .container {
+        width: 95vw;
+        height: 95vh;
+    }
+
+    .answer-box {
+        width: 90%;
+        margin-top: 15%;
+    }
+
+    .answer-row {
+        flex-direction: column;
+    }
+
+    .answer {
+        width: 80%;
+        margin-bottom: 10px;
+    }
+
+    .a1,
+    .a2 {
+        margin: 5px 0;
+    }
+}
+
+.pointCont {
+    position: absolute;
+    top: 10px;
+    left: 46%;
+    border-radius: 20px;
+    width: 200px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    margin-left: -40px;
+}
+
+
+.point {
+    color: green;
+    font-size: 30px;
+    border: none;
+    margin-right: 40px;
+
+}
+
+.wrong {
+    color: red;
+    font-size: 30px;
+    border: none;
+    margin-left: 40px;
+}
+
+.line {
+    height: 50px;
+    width: 1px;
+    background: black;
+    border: none;
+}
+
+#winner {
+    height: 85%;
+    width: 75%;
+    background-color: black;
+    position: absolute;
+    z-index: 200;
+    display: flex;
+    border-radius: 20px;
+    justify-content: center;
+
+    visibility: hidden;
+
+}
+
+.final {
+    width: 250px;
+    height: 50px;
+    margin-top: 52%;
+    padding: 0;
+
+    position: absolute;
+
+}

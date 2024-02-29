@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Interactive Quiz Game</title>
+    <link href="style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="pointCont">
+        <div class="point">0</div>
+        <div class="line"></div>
+        <div class="wrong">0</div>
+    </div>
+
+
+
+    <div class="container">
+        <div class="presentation">
+            <div class="question">
+                <h2 id="question">Which HTML attribute specifies an alternate text for an image, if the image cannot be
+                    displayed?</h1>
+            </div>
+        </div>
+        <div class='answer-box'>
+            <div class="answer-row">
+                <button onmouseover="disappear()" onmouseout="appear()" id="a1" class="answer a1">Answer 1</button>
+                <button onmouseover="disappear()" onmouseout="appear()" id="a2" class="answer a2">Answer 2</button>
+            </div>
+            <div class="answer-row">
+                <button onmouseover="disappear()" onmouseout="appear()" id="a3" class="answer a1">Answer 3</button>
+                <button onmouseover="disappear()" onmouseout="appear()" id="a4" class="answer a2">Answer 4</button>
+            </div>
+        </div>
+
+    </div>
+    <div id="winner">
+        <h2>
+            <div id="winSelect" style="font-size: 70px;"></div>
+        </h2>
+
+        <button class="final" onclick="again()">Play again</button>
+
+
+
+    </div>
+    <div class=selector>
+
+        <select id="topic-select">
+            <option value="royals">Strange Royals</option>
+            <option value="code">Code</option>
+            <option value="general_knowledge">General Knowledge</option>
+            <option value="politics">Politics</option>
+            <option value="science">Science</option>
+            <option value="business">Business</option>
+            <option value="math">Math</option>
+            <option value="unusual_food">Weird Foods</option>
+
+        </select>
+        <button onclick="redirectToPage()">Go</button>
+        <button onclick="goHome()">HOME</button>
+    </div>
+
+    <script>
+        function goHome() {
+            window.location.href = '/home_page.html';
+
+        }
+        function disappear() {
+            document.querySelectorAll('.answer').forEach(function (button) {
+                button.style.opacity = '0.5';
+            });
+
+            event.currentTarget.style.opacity = '1';
+        }
+
+        function appear() {
+            document.querySelectorAll('.answer').forEach(function (button) {
+                button.style.opacity = '1';
+            });
+        }
+
+        let lastIndex = -1;
+
+
+
+        let qList = [
+            "Which British monarch reportedly proposed to their spouse via telephone?",
+            "Which famous queen was known to have a bath in milk?",
+            "Which king is said to have had over 1,000 pairs of shoes?",
+            "Which queen was known for carrying a small coffin wherever she went?",
+            "Which emperor was obsessed with his height and wore specially made high-heeled shoes?",
+            "Which king is rumored to have eaten a meal so large it included 1,000 fowl and 400 heads of cattle?",
+            "Which queen was known for having black teeth from excessive sugar consumption?",
+            "Which monarch was known to have a pet parrot that attended all state dinners?",
+            "Which king supposedly commissioned a special table that could accommodate his large size?",
+            "Which queen purportedly never said the phrase 'Let them eat cake'?",
+            "Which famous king was known for his excessive weight and had a special chair made for his coronation?",
+            "Which queen had a collection of over 3,000 dresses at the time of her death?",
+            "Which emperor believed he was made of glass and could shatter at any moment?",
+            "Which monarch is said to have had a secret tattoo?",
+            "Which king was known to disguise himself and wander the streets of his kingdom at night?",
+            "Which queen kept a detailed diary, writing over 60 million words in her lifetime?",
+            "Which emperor was obsessed with collecting exotic animals like elephants and giraffes?",
+            "Which king reportedly drank 50 cups of hot chocolate every day?",
+            "Which monarch was famous for their extravagant wigs, some of which were over a meter high?",
+            "Which queen reportedly had a mechanical singing bird?",
+            "Which queen reportedly had a fake hand to wave to the public in her later years?",
+            "Which king was known to have a collection of over 4,000 pairs of gloves?",
+            "Which famous ruler is said to have bathed in the blood of young women?",
+            "Which monarch supposedly used a silver nose after losing theirs in battle?",
+            "Which king had a zoo in his palace garden with elephants and camels?",
+            "Which queen is said to have disguised herself as a male soldier to lead her troops?",
+            "Which emperor is famous for appointing his horse as a senator?",
+            "Which king is said to have died from eating too many lampreys, a type of fish?",
+            "Which queen had a pet bear living in her palace?",
+            "Which sultan is rumored to have 365 concubines, one for each day of the year?",
+            "Which monarch was known for having an 'invisible' chair that allowed them to speak to subjects without being seen?",
+            "Which ruler reportedly tried to make gold from lead and other substances?",
+            "Which king had a custom-made bathtub because he was too large for normal ones?",
+            "Which queen had a wedding dress that was so elaborate it took 200 people to carry it?",
+            "Which emperor claimed to have conversations with the moon?",
+            "Which king used to disguise himself as a commoner and visit local taverns to hear what his subjects thought of him?",
+            "Which queen had a collection of over 500 wigs?",
+            "Which monarch is known to have written over 1,000 letters to their lover?",
+            "Which queen is believed to have died from wearing a poisoned dress?",
+            "Which emperor had a personal guard of 10,000 men, each one over six feet tall?",
+            "Which king reportedly cried like a child at his own coronation?",
+            "Which queen had a specially made perfume that she wore every day?",
+            "Which ruler was known to eat 20 oranges a day because they believed it was a cure for several diseases?",
+            "Which monarch would only sleep in rooms that were painted blue?",
+            "Which king ordered the construction of a massive maze to entertain his court?"
+        ];
+
+        let aList = [
+            ["King Edward VIII", "Queen Victoria", "King George VI", "King Henry VIII"],
+            ["Cleopatra", "Queen Elizabeth I", "Queen Victoria", "Marie Antoinette"],
+            ["King Louis XIV", "King Henry VIII", "Emperor Nero", "King Tutankhamun"],
+            ["Queen Mary II", "Queen Elizabeth I", "Catherine the Great", "Queen Victoria"],
+            ["Napoleon Bonaparte", "Emperor Nero", "King Louis XIV", "King Henry VIII"],
+            ["King Henry VIII", "King Louis XIV", "Emperor Nero", "Alexander the Great"],
+            ["Queen Elizabeth I", "Catherine the Great", "Queen Victoria", "Marie Antoinette"],
+            ["King George V", "King Henry VIII", "King Louis XVI", "Emperor Nero"],
+            ["King Louis XV", "King Henry VIII", "King George IV", "Emperor Nero"],
+            ["Marie Antoinette", "Queen Victoria", "Queen Elizabeth I", "Catherine the Great"],
+            ["King George IV", "King Henry VIII", "King Louis XIV", "Emperor Nero"],
+            ["Queen Elizabeth I", "Marie Antoinette", "Empress Josephine", "Queen Victoria"],
+            ["King Charles VI of France", "King George III", "Emperor Nero", "King Louis XIV"],
+            ["Queen Victoria", "Catherine the Great", "King Edward VII", "Queen Elizabeth II"],
+            ["King Henry V", "King Louis XIV", "Emperor Nero", "King Charles II"],
+            ["Queen Victoria", "Queen Elizabeth II", "Catherine the Great", "Queen Mary I"],
+            ["Emperor Frederick II", "King Solomon", "King Louis XIV", "Emperor Nero"],
+            ["King Louis XV", "King George III", "Emperor Nero", "King Henry VIII"],
+            ["King Louis XVI", "King George III", "Emperor Nero", "King Henry IV"],
+            ["Empress Maria Theresa", "Queen Elizabeth I", "Queen Victoria", "Catherine the Great"],
+            ["Queen Elizabeth II", "Queen Victoria", "Catherine the Great", "Marie Antoinette"],
+            ["King James I", "King Louis XIV", "King Henry VIII", "Emperor Nero"],
+            ["Elizabeth Báthory", "Cleopatra", "Marie Antoinette", "Catherine the Great"],
+            ["Tycho Brahe", "King Henry VIII", "King Richard III", "King Louis XIV"],
+            ["King Henry III", "King Solomon", "Emperor Nero", "King Louis XIV"],
+            ["Queen Elizabeth I", "Catherine the Great", "Queen Victoria", "Joan of Arc"],
+            ["Caligula", "Nero", "Julius Caesar", "Augustus"],
+            ["King Henry I", "King Edward I", "King George III", "King Louis XIV"],
+            ["Catherine the Great", "Queen Elizabeth I", "Queen Victoria", "Marie Antoinette"],
+            ["Sultan Suleiman the Magnificent", "Emperor Nero", "King Louis XIV", "King Solomon"],
+            ["Queen Elizabeth I", "King Louis XIV", "Emperor Nero", "Catherine the Great"],
+            ["Rudolf II, Holy Roman Emperor", "King Henry VIII", "Emperor Nero", "King Louis XIV"],
+            ["King Edward VII", "King Henry VIII", "King Louis XIV", "Emperor Nero"],
+            ["Empress Elisabeth of Austria", "Queen Victoria", "Marie Antoinette", "Catherine the Great"],
+            ["Emperor Norton", "King George III", "King Louis XIV", "Emperor Nero"],
+            ["King Henry IV of France", "King Louis XVI", "King Charles II", "King Edward IV"],
+            ["Marie Antoinette", "Queen Elizabeth I", "Catherine the Great", "Empress Elisabeth of Austria"],
+            ["King Henry VIII", "Napoleon Bonaparte", "King Louis XIV", "Tsar Nicholas II"],
+            ["Cleopatra", "Marie Antoinette", "Queen Elizabeth I", "Catherine the Great"],
+            ["Peter the Great", "King Louis XIV", "King Henry VIII", "Emperor Nero"],
+            ["King George VI", "King Louis XVI", "King Edward VIII", "King Richard II"],
+            ["Marie Antoinette", "Queen Elizabeth I", "Empress Elisabeth of Austria", "Catherine the Great"],
+            ["King Louis XIV", "Queen Elizabeth I", "King George III", "Emperor Nero"],
+            ["Queen Victoria", "King Louis XIV", "King George III", "Queen Elizabeth I"],
+            ["King Louis XIV", "Emperor Nero", "King Henry VIII", "King Solomon"]
+        ];
+
+
+
+
+        function getRandomNumber(lastIndex) {
+            let newIndex;
+            do {
+                newIndex = Math.floor(Math.random() * 45);
+            } while (newIndex === lastIndex);
+            return newIndex;
+        }
+
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+        function again() {
+            document.getElementById("winner").style.visibility = "hidden";
+            let nUmElement = document.querySelector(".point");
+            nUmElement.textContent = 0
+            let numElement = document.querySelector(".wrong");
+            numElement.textContent = 0;
+        }
+
+        function displayQuestion() {
+            const index = getRandomNumber(lastIndex);
+            lastIndex = index;
+            const area = document.getElementById("question");
+            area.textContent = qList[index];
+
+            const answers = [...aList[index]]; // Create a copy of the answers array
+            shuffleArray(answers); // Shuffle the answers
+
+            // Assign shuffled answers to buttons and add 'correct' class to the correct one
+            for (let i = 0; i < 4; i++) {
+                const button = document.getElementById('a' + (i + 1));
+                button.textContent = answers[i];
+                button.classList.remove('correct'); // Remove the class if it was previously added
+                if (answers[i] === aList[index][0]) { // Check if it's the correct answer
+                    button.classList.add('correct');
+                }
+            }
+        }
+
+        function redirectToPage() {
+            var selectedTopic = document.getElementById("topic-select").value;
+            window.location.href = selectedTopic + ".html";
+        }
+
+
+
+
+
+        function add() {
+            let numElement = document.querySelector(".point");
+            let num = parseFloat(numElement.textContent);
+            num = num + 1;
+            numElement.textContent = num;
+
+            if (num >= 10) {
+                document.getElementById("winner").style.visibility = "visible"; // Corrected the typo here
+                document.getElementById("winSelect").textContent = "You win";
+
+            }
+        }
+        function min() {
+
+            let numElement = document.querySelector(".point");
+            let num = parseFloat(numElement.textContent);
+            if (num > 0) {
+                num = num - 1;
+                numElement.textContent = num;
+            }
+        }
+        function addwrong() {
+            let numElement = document.querySelector(".wrong");
+            let num = parseFloat(numElement.textContent);
+            num = num + 1;
+            numElement.textContent = num;
+
+
+            if (num >= 10) {
+                document.getElementById("winner").style.visibility = "visible"; // Corrected the typo here
+                document.getElementById("winSelect").textContent = "You lose";
+            }
+        }
+
+
+
+        document.addEventListener("click", function (event) {
+            if (event.target.classList.contains("correct") && event.target.classList.contains("answer")) {
+                console.log('Correct answer clicked!');
+                add()
+                displayQuestion()
+            } else if (event.target.classList.contains("answer")) {
+                console.log('Incorrect answer clicked!');
+                addwrong()
+                displayQuestion();
+            }
+
+
+
+        });
+
+
+
+
+
+
+
+
+
+
+        document.addEventListener('keydown', function (event) {
+
+            if (event.key === 'q') {
+                console.log('The "q" key was pressed.');
+                displayQuestion()
+            }
+            if (event.key === 'p') {
+                console.log('The "p" key was pressed.');
+                add()
+            }
+            if (event.key === 'Backspace') {
+                console.log('The "Backspace" key was pressed.');
+                min()
+            }
+        });
+
+        displayQuestion()
+
+
+    </script>
+
+
+</body>
+
+</html>
