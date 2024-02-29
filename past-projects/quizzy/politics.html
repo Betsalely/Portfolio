@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Interactive Quiz Game</title>
+    <link href="style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="pointCont">
+        <div class="point">0</div>
+        <div class="line"></div>
+        <div class="wrong">0</div>
+    </div>
+
+
+
+    <div class="container">
+        <div class="presentation">
+            <div class="question">
+                <h2 id="question">Which HTML attribute specifies an alternate text for an image, if the image cannot be
+                    displayed?</h1>
+            </div>
+        </div>
+        <div class='answer-box'>
+            <div class="answer-row">
+                <button onmouseover="disappear()" onmouseout="appear()" id="a1" class="answer a1">Answer 1</button>
+                <button onmouseover="disappear()" onmouseout="appear()" id="a2" class="answer a2">Answer 2</button>
+            </div>
+            <div class="answer-row">
+                <button onmouseover="disappear()" onmouseout="appear()" id="a3" class="answer a1">Answer 3</button>
+                <button onmouseover="disappear()" onmouseout="appear()" id="a4" class="answer a2">Answer 4</button>
+            </div>
+        </div>
+
+    </div>
+    <div id="winner">
+        <h2>
+            <div id="winSelect" style="font-size: 70px;"></div>
+        </h2>
+
+        <button class="final" onclick="again()">Play again</button>
+
+
+
+    </div>
+    <div class=selector>
+
+        <select id="topic-select">
+            <option value="politics">Politics</option>
+            <option value="code">Code</option>
+            <option value="general_knowledge">General Knowledge</option>
+
+            <option value="science">Science</option>
+            <option value="business">Business</option>
+            <option value="math">Math</option>
+            <option value="unusual_food">Weird Foods</option>
+            <option value="royals">Strange Royals</option>
+        </select>
+        <button onclick="redirectToPage()">Go</button>
+        <button onclick="goHome()">HOME</button>
+    </div>
+
+    <script>
+        function goHome() {
+            window.location.href = '/index.html';
+
+        }
+        function disappear() {
+            document.querySelectorAll('.answer').forEach(function (button) {
+                button.style.opacity = '0.5';
+            });
+
+            event.currentTarget.style.opacity = '1';
+        }
+
+        function appear() {
+            document.querySelectorAll('.answer').forEach(function (button) {
+                button.style.opacity = '1';
+            });
+        }
+
+        let lastIndex = -1;
+
+
+
+        let qList = [
+            "What is the term length for a U.S. Senator?",
+            "Who is known as the 'Father of the Constitution'?",
+            "What system is used to elect the President of the United States?",
+            "Which political philosophy advocates for minimal state intervention in the lives of citizens?",
+            "Who was the first female Prime Minister of the United Kingdom?",
+            "What is the main function of the legislative branch of government?",
+            "Which document proclaimed the independence of the United States from Britain?",
+            "In a democracy, how are government officials usually chosen?",
+            "What political ideology is Karl Marx associated with?",
+            "What is the highest court in the United States?",
+            "Which country is known for having the world's oldest active constitution?",
+            "What is the primary purpose of a political party?",
+            "What is the name of the process where electoral districts are redrawn?",
+            "Who has the power to declare war in the United States?",
+            "Which international organization was founded after World War II to prevent another such conflict?",
+            "What political system is ruled by a few powerful people?",
+            "In which political system does a single party control the government and the state controls the economy?",
+            "What is the term for a government controlled by religious authorities?",
+            "What does 'NATO' stand for?",
+            "Who was the first African American President of the United States?",
+            "What is the system of government where power is divided between central and regional bodies?",
+            "What is the term for a change to the U.S. Constitution?",
+            "Who is known as the 'Iron Lady' of British politics?",
+            "What does the 'G' in 'GDP' stand for?",
+            "Which political ideology is associated with free-market capitalism?",
+            "Who was the principal author of the Declaration of Independence?",
+            "What does the term 'bipartisan' mean?",
+            "What is the primary role of the United Nations?",
+            "Which economic system is characterized by public or collective ownership of resources?",
+            "What is the highest court in the United Kingdom?",
+            "Who was the first female Chancellor of Germany?",
+            "What is the dominant legislative body in the UK Parliament?",
+            "What does 'Veto' mean in political terms?",
+            "What form of government is ruled by a king or queen?",
+            "What is the name given to the policy of extending a country's power and influence through diplomacy or military force?",
+            "Who was the first President of the United States?",
+            "What is the practice of influencing legislators on behalf of a specific cause?",
+            "What political theory asserts that political power should be distributed and shared among various groups in a society?",
+            "What is the term for the peaceful change of government following an election?",
+            "What is the primary law-making body in the United States?",
+            "Who is known for the theory of 'class struggle' in sociology?",
+            "What is the term for the exclusive control of a commodity or service in a particular market?",
+            "What is the most widely practiced form of government today?",
+            "What does 'UNESCO' stand for?",
+            "Which country has the largest democracy in the world?"
+        ];
+
+        let aList = [
+            ["6 years", "4 years", "2 years", "10 years"],
+            ["James Madison", "George Washington", "Thomas Jefferson", "Alexander Hamilton"],
+            ["Electoral College", "Popular vote", "Congressional vote", "Senate vote"],
+            ["Libertarianism", "Communism", "Socialism", "Fascism"],
+            ["Margaret Thatcher", "Theresa May", "Indira Gandhi", "Angela Merkel"],
+            ["To make laws", "To enforce laws", "To interpret laws", "To finance laws"],
+            ["The Declaration of Independence", "The Constitution", "The Bill of Rights", "The Emancipation Proclamation"],
+            ["Elections", "Hereditary succession", "Lottery", "Appointment"],
+            ["Communism", "Capitalism", "Liberalism", "Anarchism"],
+            ["The Supreme Court", "The Federal Court", "The Court of Appeals", "The District Court"],
+            ["The United States", "The United Kingdom", "France", "Japan"],
+            ["To win elections", "To make laws", "To enforce laws", "To interpret laws"],
+            ["Gerrymandering", "Filibustering", "Lobbying", "Caucusing"],
+            ["The Congress", "The President", "The Supreme Court", "The States"],
+            ["The United Nations", "The League of Nations", "NATO", "The European Union"],
+            ["Oligarchy", "Democracy", "Monarchy", "Theocracy"],
+            ["Communism", "Democracy", "Monarchy", "Capitalism"],
+            ["Theocracy", "Democracy", "Oligarchy", "Autocracy"],
+            ["North Atlantic Treaty Organization", "National Association of Treaty Organization", "North American Treaty Organization", "National Atlantic Treaty Organization"],
+            ["Barack Obama", "George W. Bush", "Bill Clinton", "Donald Trump"],
+            ["Federalism", "Unitarism", "Confederation", "Totalitarianism"],
+            ["Amendment", "Bill", "Act", "Proclamation"],
+            ["Margaret Thatcher", "Angela Merkel", "Indira Gandhi", "Theresa May"],
+            ["Gross", "Global", "General", "Government"],
+            ["Capitalism", "Socialism", "Communism", "Fascism"],
+            ["Thomas Jefferson", "George Washington", "John Adams", "Benjamin Franklin"],
+            ["Supported by two political parties", "Non-partisan", "Opposed by all parties", "Unrelated to parties"],
+            ["Maintaining international peace and security", "Managing global finances", "Promoting worldwide health", "Global environmental protection"],
+            ["Socialism", "Capitalism", "Libertarianism", "Anarchism"],
+            ["The Supreme Court", "The Royal Court", "The High Court", "The Crown Court"],
+            ["Angela Merkel", "Theresa May", "Ursula von der Leyen", "Christine Lagarde"],
+            ["The House of Commons", "The House of Lords", "The Senate", "The Parliament"],
+            ["To reject or prohibit a decision or proposal", "To approve", "To postpone", "To debate"],
+            ["Monarchy", "Democracy", "Republic", "Oligarchy"],
+            ["Imperialism", "Democracy", "Socialism", "Federalism"],
+            ["George Washington", "John Adams", "Thomas Jefferson", "Abraham Lincoln"],
+            ["Lobbying", "Campaigning", "Voting", "Protesting"],
+            ["Pluralism", "Totalitarianism", "Authoritarianism", "Monism"],
+            ["Peaceful transition", "Coup", "Revolution", "Uprising"],
+            ["Congress", "Parliament", "Senate", "Supreme Court"],
+            ["Karl Marx", "Adam Smith", "John Locke", "Max Weber"],
+            ["Monopoly", "Oligopoly", "Plutocracy", "Capitalism"],
+            ["Democracy", "Monarchy", "Communism", "Theocracy"],
+            ["United Nations Educational, Scientific, and Cultural Organization", "United Nations Economic, Social, and Cultural Organization", "United Nations Environmental, Scientific, and Cultural Organization", "United Nations Economic, Scientific, and Commercial Organization"],
+            ["India", "United States", "Brazil", "Indonesia"]
+        ];
+
+
+
+        function getRandomNumber(lastIndex) {
+            let newIndex;
+            do {
+                newIndex = Math.floor(Math.random() * 45);
+            } while (newIndex === lastIndex);
+            return newIndex;
+        }
+
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+        function again() {
+            document.getElementById("winner").style.visibility = "hidden";
+            let nUmElement = document.querySelector(".point");
+            nUmElement.textContent = 0
+            let numElement = document.querySelector(".wrong");
+            numElement.textContent = 0;
+        }
+
+        function displayQuestion() {
+            const index = getRandomNumber(lastIndex);
+            lastIndex = index;
+            const area = document.getElementById("question");
+            area.textContent = qList[index];
+
+            const answers = [...aList[index]]; // Create a copy of the answers array
+            shuffleArray(answers); // Shuffle the answers
+
+            // Assign shuffled answers to buttons and add 'correct' class to the correct one
+            for (let i = 0; i < 4; i++) {
+                const button = document.getElementById('a' + (i + 1));
+                button.textContent = answers[i];
+                button.classList.remove('correct'); // Remove the class if it was previously added
+                if (answers[i] === aList[index][0]) { // Check if it's the correct answer
+                    button.classList.add('correct');
+                }
+            }
+        }
+
+        function redirectToPage() {
+            var selectedTopic = document.getElementById("topic-select").value;
+            window.location.href = selectedTopic + ".html";
+        }
+
+
+
+
+
+        function add() {
+            let numElement = document.querySelector(".point");
+            let num = parseFloat(numElement.textContent);
+            num = num + 1;
+            numElement.textContent = num;
+
+            if (num >= 10) {
+                document.getElementById("winner").style.visibility = "visible"; // Corrected the typo here
+                document.getElementById("winSelect").textContent = "You win";
+
+            }
+        }
+        function min() {
+
+            let numElement = document.querySelector(".point");
+            let num = parseFloat(numElement.textContent);
+            if (num > 0) {
+                num = num - 1;
+                numElement.textContent = num;
+            }
+        }
+        function addwrong() {
+            let numElement = document.querySelector(".wrong");
+            let num = parseFloat(numElement.textContent);
+            num = num + 1;
+            numElement.textContent = num;
+
+
+            if (num >= 10) {
+                document.getElementById("winner").style.visibility = "visible"; // Corrected the typo here
+                document.getElementById("winSelect").textContent = "You lose";
+            }
+        }
+
+
+
+        document.addEventListener("click", function (event) {
+            if (event.target.classList.contains("correct") && event.target.classList.contains("answer")) {
+                console.log('Correct answer clicked!');
+                add()
+                displayQuestion()
+            } else if (event.target.classList.contains("answer")) {
+                console.log('Incorrect answer clicked!');
+                addwrong()
+                displayQuestion();
+            }
+
+
+
+        });
+
+
+
+
+
+
+
+
+
+
+        document.addEventListener('keydown', function (event) {
+
+            if (event.key === 'q') {
+                console.log('The "q" key was pressed.');
+                displayQuestion()
+            }
+            if (event.key === 'p') {
+                console.log('The "p" key was pressed.');
+                add()
+            }
+            if (event.key === 'Backspace') {
+                console.log('The "Backspace" key was pressed.');
+                min()
+            }
+        });
+
+        displayQuestion()
+
+
+    </script>
+
+
+</body>
+
+</html>

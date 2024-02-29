@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Interactive Quiz Game</title>
+    <link href="style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="pointCont">
+        <div class="point">0</div>
+        <div class="line"></div>
+        <div class="wrong">0</div>
+    </div>
+
+
+
+    <div class="container">
+        <div class="presentation">
+            <div class="question">
+                <h2 id="question">Which HTML attribute specifies an alternate text for an image, if the image cannot be
+                    displayed?</h1>
+            </div>
+        </div>
+        <div class='answer-box'>
+            <div class="answer-row">
+                <button onmouseover="disappear()" onmouseout="appear()" id="a1" class="answer a1">Answer 1</button>
+                <button onmouseover="disappear()" onmouseout="appear()" id="a2" class="answer a2">Answer 2</button>
+            </div>
+            <div class="answer-row">
+                <button onmouseover="disappear()" onmouseout="appear()" id="a3" class="answer a1">Answer 3</button>
+                <button onmouseover="disappear()" onmouseout="appear()" id="a4" class="answer a2">Answer 4</button>
+            </div>
+        </div>
+
+    </div>
+    <div id="winner">
+        <h2>
+            <div id="winSelect" style="font-size: 70px;"></div>
+        </h2>
+
+        <button class="final" onclick="again()">Play again</button>
+
+
+
+    </div>
+    <div class=selector>
+
+        <select id="topic-select">
+            <option value="business">Business</option>
+            <option value="code">Code</option>
+            <option value="general_knowledge">General Knowledge</option>
+            <option value="politics">Politics</option>
+            <option value="science">Science</option>
+            <option value="business">Business</option>
+            <option value="math">Math</option>
+            <option value="unusual_food">Weird Foods</option>
+            <option value="royals">Strange Royals</option>
+        </select>
+        <button onclick="redirectToPage()">Go</button>
+        <button onclick="goHome()">HOME</button>
+    </div>
+
+    <script>
+        function goHome() {
+            window.location.href = '/index.html';
+
+        }
+        function disappear() {
+            document.querySelectorAll('.answer').forEach(function (button) {
+                button.style.opacity = '0.5';
+            });
+
+            event.currentTarget.style.opacity = '1';
+        }
+
+        function appear() {
+            document.querySelectorAll('.answer').forEach(function (button) {
+                button.style.opacity = '1';
+            });
+        }
+
+        let lastIndex = -1;
+
+
+
+        let qList = [
+            "What is the term for the total value of goods produced and services provided in a country in a year?",
+            "Which economic theory advocates for minimal government intervention in the economy?",
+            "What is the process of buying or selling online?",
+            "Who is the author of 'The Wealth of Nations'?",
+            "What term describes a market with a single seller and multiple buyers?",
+            "What is the study of how people allocate scarce resources for production, distribution, and consumption?",
+            "What is the name given to the graph depicting the demand and supply equilibrium?",
+            "What does IPO stand for in the financial sector?",
+            "Who developed the theory of comparative advantage in international trade?",
+            "What is the term for an increase in prices and fall in the purchasing value of money?",
+            "What is a SWOT analysis used for?",
+            "Which management theory emphasizes efficiency and productivity through methodical work processes?",
+            "What is a legally binding agreement between two or more parties called?",
+            "Who is considered the father of modern management theory?",
+            "What term is used to describe the total money brought into a company from its business activities?",
+            "What is the business model where a company allows individuals to rent or borrow assets owned by someone else?",
+            "What does the 'P' in 'PESTEL' analysis stand for?",
+            "What type of marketing involves creating and sharing content on social media networks?",
+            "Who wrote 'The Lean Startup'?",
+            "What is the term for a significant drop in stock market prices across a significant cross-section of a stock market?",
+            "What is the term for a business owned and operated by one person?",
+            "What does CSR stand for in business?",
+            "What is the practice of outsourcing tasks, typically by companies to external providers?",
+            "Who is the author of 'Think and Grow Rich'?",
+            "What does ROI stand for in finance?",
+            "What is known as the 4 Ps of Marketing?",
+            "Who is the CEO of Berkshire Hathaway?",
+            "What is a detailed plan for achieving success in various fields called?",
+            "What does NASDAQ stand for?",
+            "What is the term for the difference between a product's selling price and cost?",
+            "What is the term for a market characterized by a small number of large sellers?",
+            "What is the act of selling a product below cost to drive competitors out of the market called?",
+            "What does GAAP stand for in accounting?",
+            "What is a systematic investigation of market conditions for a new product called?",
+            "What term describes the maximum output that an economy can sustain over a period of time?",
+            "Who is known for developing the 14 Principles of Management?",
+            "What is the term for a temporary group activity designed to produce a unique product, service, or result?",
+            "What is the financial term for the ownership stakes in a company?",
+            "What is a business strategy where a company offers a basic product at a low cost and charges extra for additional features?",
+            "What does B2B stand for in business?",
+            "What is the term for a market dominated by a few large suppliers?",
+            "What is the process of dividing a broad consumer market into sub-groups called?",
+            "Who wrote 'The 7 Habits of Highly Effective People'?",
+            "What does 'SWIFT' stand for in banking?",
+            "What is the economic indicator that measures the total value of all goods and services produced by all citizens of a country?"
+        ];
+
+        let aList = [
+            ["Gross Domestic Product (GDP)", "Gross National Product (GNP)", "Net Domestic Product (NDP)", "Net National Product (NNP)"],
+            ["Laissez-faire", "Keynesianism", "Marxism", "Monetarism"],
+            ["E-commerce", "Retail trading", "Brick-and-mortar", "Direct selling"],
+            ["Adam Smith", "Karl Marx", "John Maynard Keynes", "Friedrich Hayek"],
+            ["Monopoly", "Oligopoly", "Monopsony", "Duopoly"],
+            ["Economics", "Finance", "Accounting", "Marketing"],
+            ["Supply and Demand Curve", "Bell Curve", "Phillips Curve", "Laffer Curve"],
+            ["Initial Public Offering", "Internal Process Optimization", "Intellectual Property Organization", "Immediate Profit Opportunity"],
+            ["David Ricardo", "Adam Smith", "Milton Friedman", "John Stuart Mill"],
+            ["Inflation", "Deflation", "Stagflation", "Hyperinflation"],
+            ["Analyzing a business's strengths, weaknesses, opportunities, and threats", "Financial auditing", "Market segmentation", "Employee performance evaluation"],
+            ["Taylorism (Scientific Management)", "Human Relations Movement", "Contingency Theory", "Systems Theory"],
+            ["Contract", "Agreement", "Memorandum of Understanding", "Partnership"],
+            ["Peter Drucker", "Henry Fayol", "Frederick Taylor", "Abraham Maslow"],
+            ["Revenue", "Profit", "Net Income", "Gross Margin"],
+            ["Sharing Economy", "Franchise Model", "Subscription Model", "B2B Model"],
+            ["Political", "Public", "Profit", "Purchasing"],
+            ["Social Media Marketing", "Influencer Marketing", "Outbound Marketing", "Direct Marketing"],
+            ["Eric Ries", "Peter Thiel", "Steve Blank", "Clayton Christensen"],
+            ["Market Crash", "Economic Downturn", "Recession", "Bear Market"],
+            ["Sole Proprietorship", "Partnership", "Corporation", "Limited Liability Company"],
+            ["Corporate Social Responsibility", "Customer Service Requirement", "Cost Savings Ratio", "Credit Security Rating"],
+            ["Outsourcing", "Offshoring", "Freelancing", "Contracting"],
+            ["Napoleon Hill", "Dale Carnegie", "Robert Kiyosaki", "Stephen Covey"],
+            ["Return on Investment", "Rate of Interest", "Reinvestment Option", "Risk of Insolvency"],
+            ["Product, Price, Place, Promotion", "Production, Process, People, Performance", "Plan, Procedure, Policy, Practice", "Position, Power, Perception, Performance"],
+            ["Warren Buffett", "Jeff Bezos", "Elon Musk", "Bill Gates"],
+            ["Strategy", "Tactic", "Plan", "Scheme"],
+            ["National Association of Securities Dealers Automated Quotations", "North American Securities Dealers Association for Quality", "National Automated Stock Dealers Association Quotation", "National Association for Stock Development and Quality"],
+            ["Margin", "Markup", "Profit", "Gain"],
+            ["Oligopoly", "Monopoly", "Plutocracy", "Duopoly"],
+            ["Predatory Pricing", "Discount Pricing", "Cost Leadership", "Market Skimming"],
+            ["Generally Accepted Accounting Principles", "General Accounting Assessed Principles", "General Asset Accounting Procedures", "Government Authorized Accounting Practices"],
+            ["Market Research", "Product Development", "Market Analysis", "Business Planning"],
+            ["Potential Gross Domestic Product", "Maximum Sustainable Output", "Economic Growth Limit", "National Output Capacity"],
+            ["Henri Fayol", "Peter Drucker", "Frederick Taylor", "Max Weber"],
+            ["Project", "Task Force", "Committee", "Operation"],
+            ["Equity", "Debt", "Assets", "Liabilities"],
+            ["Freemium", "Premium", "Economy", "Value-Added"],
+            ["Business to Business", "Back to Basics", "Branch to Branch", "Buyer to Buyer"],
+            ["Oligopsony", "Monopsony", "Duopsony", "Plutocracy"],
+            ["Market Segmentation", "Market Penetration", "Market Development", "Product Diversification"],
+            ["Stephen Covey", "Simon Sinek", "Malcolm Gladwell", "Tony Robbins"],
+            ["Society for Worldwide Interbank Financial Telecommunication", "Secure Wire International Financial Transfer", "Swift Worldwide International Financial Telecommunications", "Standard Worldwide Interbank Financial Transactions"],
+            ["Gross National Product", "Gross Domestic Product", "Net National Product", "Net Domestic Product"]
+        ];
+
+
+
+
+        function redirectToPage() {
+            var selectedTopic = document.getElementById("topic-select").value;
+            window.location.href = selectedTopic + ".html";
+        }
+
+
+        function getRandomNumber(lastIndex) {
+            let newIndex;
+            do {
+                newIndex = Math.floor(Math.random() * 45);
+            } while (newIndex === lastIndex);
+            return newIndex;
+        }
+
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+        function again() {
+            document.getElementById("winner").style.visibility = "hidden";
+            let nUmElement = document.querySelector(".point");
+            nUmElement.textContent = 0
+            let numElement = document.querySelector(".wrong");
+            numElement.textContent = 0;
+        }
+
+        function displayQuestion() {
+            const index = getRandomNumber(lastIndex);
+            lastIndex = index;
+            const area = document.getElementById("question");
+            area.textContent = qList[index];
+
+            const answers = [...aList[index]]; // Create a copy of the answers array
+            shuffleArray(answers); // Shuffle the answers
+
+            // Assign shuffled answers to buttons and add 'correct' class to the correct one
+            for (let i = 0; i < 4; i++) {
+                const button = document.getElementById('a' + (i + 1));
+                button.textContent = answers[i];
+                button.classList.remove('correct'); // Remove the class if it was previously added
+                if (answers[i] === aList[index][0]) { // Check if it's the correct answer
+                    button.classList.add('correct');
+                }
+            }
+        }
+
+
+
+
+
+
+
+        function add() {
+            let numElement = document.querySelector(".point");
+            let num = parseFloat(numElement.textContent);
+            num = num + 1;
+            numElement.textContent = num;
+
+            if (num >= 10) {
+                document.getElementById("winner").style.visibility = "visible"; // Corrected the typo here
+                document.getElementById("winSelect").textContent = "You win";
+
+            }
+        }
+        function min() {
+
+            let numElement = document.querySelector(".point");
+            let num = parseFloat(numElement.textContent);
+            if (num > 0) {
+                num = num - 1;
+                numElement.textContent = num;
+            }
+        }
+        function addwrong() {
+            let numElement = document.querySelector(".wrong");
+            let num = parseFloat(numElement.textContent);
+            num = num + 1;
+            numElement.textContent = num;
+
+
+            if (num >= 10) {
+                document.getElementById("winner").style.visibility = "visible"; // Corrected the typo here
+                document.getElementById("winSelect").textContent = "You lose";
+            }
+        }
+
+
+
+        document.addEventListener("click", function (event) {
+            if (event.target.classList.contains("correct") && event.target.classList.contains("answer")) {
+                console.log('Correct answer clicked!');
+                add()
+                displayQuestion()
+            } else if (event.target.classList.contains("answer")) {
+                console.log('Incorrect answer clicked!');
+                addwrong()
+                displayQuestion();
+            }
+
+
+
+        });
+
+
+
+
+
+
+
+
+
+
+        document.addEventListener('keydown', function (event) {
+
+            if (event.key === 'q') {
+                console.log('The "q" key was pressed.');
+                displayQuestion()
+            }
+            if (event.key === 'p') {
+                console.log('The "p" key was pressed.');
+                add()
+            }
+            if (event.key === 'Backspace') {
+                console.log('The "Backspace" key was pressed.');
+                min()
+            }
+        });
+
+        displayQuestion()
+
+
+    </script>
+
+
+</body>
+
+</html>

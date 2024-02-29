@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Portfolio</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+    </link>
+    <style>
+        .arrow {
+            height: 100px;
+            width: 100px;
+            border: 1px solid black;
+            border-radius: 50%;
+        }
+
+        button.arrow:active {
+            border: 1px solid black;
+
+        }
+
+
+        /*        body, html {
+
+            perspective: 500px;
+
+        }*/
+
+        #cubeContainer {
+            left: 39%;
+            width: 400px;
+            height: 400px;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        #cube {
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            transform-style: preserve-3d;
+        }
+
+        .face {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border: 2px solid #ccc;
+            border-radius: 25px;
+        }
+
+        .front {
+            transform: translateZ(150px);
+            background: rgba(255, 0, 0, 0.9);
+        }
+
+        .back {
+            transform: rotateY(180deg) translateZ(150px);
+            background: rgba(0, 0, 225, 0.9);
+        }
+
+        .left {
+            transform: rotateY(-90deg) translateZ(150px);
+            background: rgba(0, 255, 0, 0.9);
+        }
+
+        .right {
+            transform: rotateY(90deg) translateZ(150px);
+            background: rgba(118, 118, 118, 0.9);
+        }
+
+        .top {
+            transform: rotateX(90deg) translateZ(150px);
+        }
+
+        .bottom {
+            transform: rotateX(-90deg) translateZ(150px);
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: #f4f4f4;
+            height: auto;
+            text-align: center;
+
+
+        }
+
+        #navbar {
+            background-color: #333;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 80px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            box-shadow: 0 12px 15px rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+        }
+
+        #navbar a {
+            color: #DDD;
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: background-color 0.6s, color 0.3s, box-shadow 0.3s;
+            /* added box-shadow transition */
+            height: 100%;
+            text-align: center;
+            line-height: 80px;
+            /* Adjust the line-height to match the height of your navbar */
+        }
+
+        #navbar a:hover {
+            background-color: #ddd;
+            color: black;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            /* added box shadow on hover */
+        }
+
+        .content {
+            padding: 16px;
+            margin-top: 100px;
+            text-align: center;
+            min-height: 90vh;
+        }
+
+        .content .heading h1,
+        .content .intro h2 {
+            color: #333;
+            font-size: 28px;
+        }
+
+        .white {
+            background-color: red;
+
+        }
+
+        .square {
+            height: 100px;
+            width: 100px;
+            z-index: 100;
+        }
+
+        .content .heading p,
+        .content .intro p {
+            color: #555;
+            font-size: 16px;
+            max-width: 600px;
+            margin: 20px auto;
+            line-height: 1.6;
+        }
+
+        .intro {
+            display: inline-block;
+            margin: 25px;
+
+
+        }
+
+        .txtR {
+            text-align: right;
+        }
+
+        .txtL {
+            text-align: left;
+        }
+
+
+        footer {
+            background-color: #222;
+            overflow: hidden;
+
+            bottom: 0px;
+            width: 100%;
+            height: 180px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            /* subtle shadow */
+            z-index: 1000;
+        }
+
+        footer div.footer_content {
+            height: 150px;
+            width: 150px;
+            background-color: black;
+        }
+
+        ul {
+            text-align: left;
+        }
+
+        p {
+
+            padding: 4px;
+        }
+
+        .back {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .back li a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <span class="fa-solid fa-user"></span> -->
+    <div id="navbar">
+        <a href="project1.html">Project 1</a>
+        <a href="">Project 2 <i class="fa-face fa-face-awesome"></i></a>
+        <a href="">Project 3 <i class="fa fa-person-rays"></i></a>
+        <a href="https://github.com/Betsalely/Portfolio/tree/main" target="_blank">Github Repo <i
+                class="fa-brands fa-github"></i></a>
+    </div>
+
+    <div class="content">
+        <div class="heading">
+            <h1>Yair Betsalel</h1>
+            <h3>Year 11 Portfolio</h3>
+            <p>
+                This is the homepage of my Year 11 portfolio. It includes links to the actual project pages and to
+                sources where some code may have originated from.
+            </p>
+
+
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="intro txtL">
+            <div>
+                <h2>Information</h2>
+                <P> My name is Yair Betsalel and I first learned to code in year 9. SInce that moment I have continued
+                    to make projects in my own time. I make all types of stuff like special calculators (Click me to
+                    see) or maybe even some games like (Hangman) or (Tic Tac Toe). Those types of mprojects i do in my
+                    own time but I find some academic use in coding aswell. I have been gifted in mathematical abilities
+                    ever sinbce I was born so sometimes my teachers give me an extension challenge where I solve a
+                    difficukt math problem using my coding abilities. While I do know a little but of Python I tend to
+                    favour javascript.</P>
+            </div>
+        </div>
+        <div class="intro txtR">
+            <div>
+                <h2>Descrition</h2>
+                <P>This page is my 2024 portfolio for my 2-5 projects. There might be some extra ones that may not have
+                    been assigned to make the portfolio just a tad more appealing. Some of these include litlle easter
+                    eggs, cool designs or potentially a little explanation to the code.</P>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <hr>
+    <br>
+    <div id="cubeContainer">
+        <div id="cube">
+            <div class="face front">
+                <h1>Languages</h1>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>Javascript</li>
+                    <li>Python</li>
+                </ul>
+
+                <p> I Learned these languages from a mixture of class (Digitech), CodeCademy, and self learning /
+                    research.</p>
+            </div>
+
+
+
+            <div class="face back">
+                <h2>Past projects: </h2>
+                <ul style="width: 45%;">
+                    <li><a href="past-projects/3dCube.html">3d cube <i class="fa-brands fa-github"></i></a></li>
+                    <li><a href="past-projects/TicTacToe.html">Tic Tac Toe <i class="fa fa-file"></i></a></li>
+                    <li><a href="past-projects/Hang/Hangman.html">Hangman <i class="fa fa-laptop-code"></i></a></li>
+                    <li><a href="past-projects/quizzy/math.html">Quizzical<i class="fa fa-question-mark"></i></a></li>
+                    <li><a href="past-projects/QuadraticSol.html">Quadratic Calc <i class="fa fa-calculator"></i></a>
+                    </li>
+                    <li><a href="past-projects/counter.html">Counter <i class="fa fa-code-branch"></i></a></li>
+                    <li><a href="past-projects/Sudoku.html">Sudoku <i class="fa fa-grid"></i></a></li>
+                    <li><a href="past-projects/g21Calc.html">21 Game<i class="fa fa-cube"></i></a></li>
+                    <li><a href="past-projects/hanoi.html">Hanoi Towers</a></li>
+
+
+                </ul>
+
+
+            </div>
+            <div class="face left">
+
+                <p>this cube took very long to code. If you want to see how it works you can watch this video.</p>
+            </div>
+            <div class="face right">
+                <p>The first link on the back is my source code for this cube (use arrow keys or press c for cursor
+                    mode).</p>
+            </div>
+            <div class="face top"></div>
+            <div class="face bottom"></div>
+
+
+        </div>
+    </div>
+
+
+    <button onclick="rotateRight()" class="arrow leftarrow"><i class="fa fa-arrow-left"></i></button>
+    <button onclick="rotateLeft()" class="arrow rightarrow"><i class="fa fa-arrow-right"></i></button>
+
+
+    <div class="footer">
+        <footer>
+            <div class="footer-content left">
+                <p>HELLOW</p>
+                <div class="white square">
+                </div>
+            </div>
+            <div class="footer-content list">
+            </div>
+
+        </footer>
+    </div>
+
+
+    <script>
+        let cube = document.getElementById('cube');
+        let x = 0, y = 0;
+        let cursorMode = false;
+
+        // Flags to track the state of arrow keys
+        let keyState = {
+            ArrowLeft: false,
+            ArrowRight: false,
+            ArrowUp: false,
+            ArrowDown: false
+        };
+
+        function updateRotation() {
+            if (!cursorMode) {
+                // Check for non-opposite key combinations
+                if (keyState.ArrowLeft && !keyState.ArrowRight) y -= 1;
+                if (keyState.ArrowRight && !keyState.ArrowLeft) y += 1;
+                if (keyState.ArrowUp && !keyState.ArrowDown) x += 1;
+                if (keyState.ArrowDown && !keyState.ArrowUp) x -= 1;
+            }
+
+            cube.style.transform = `rotateX(${x}deg) rotateY(${y}deg)`;
+        }
+
+        // document.addEventListener('keydown', function(e) {
+        //     if (e.key === 'c' || e.key === 'C') {
+        //         cursorMode = !cursorMode;
+        //         if (cursorMode) {
+        //             x = 0;
+        //             y = 0;
+        //             updateRotation();
+        //         }
+        //     }
+
+        //     if (keyState.hasOwnProperty(e.key)) {
+        //         keyState[e.key] = true;
+        //         updateRotation();
+        //     }
+        // });
+
+        document.addEventListener('keyup', function (e) {
+            if (keyState.hasOwnProperty(e.key)) {
+                keyState[e.key] = false;
+            }
+        });
+
+        document.addEventListener('mousemove', function (e) {
+            if (cursorMode) {
+                const rect = cubeContainer.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+
+                const dx = e.clientX - centerX;
+                const dy = e.clientY - centerY;
+
+                y = (dx / 8);
+                x = -(dy / 8);
+
+                updateRotation();
+            }
+        });
+
+        setInterval(updateRotation, 7);
+
+        let stepright = 0;
+        let stepleft = 0;
+
+        let isRotating = false;
+
+        function rotateRight() {
+            if (isRotating) return;
+            isRotating = true;
+
+            let frames = 0;
+            stepright++;
+            let yCopy = y + 90;
+
+            function animate() {
+                y += 2.5;
+                frames++;
+
+                if (stepright <= 4 && y < yCopy) {
+                    requestAnimationFrame(animate);
+                } else {
+                    console.log('Rotation complete');
+                    stepright = 0;
+                    isRotating = false; // Reset the rotation flag
+                }
+            }
+
+            animate();
+        }
+
+        function rotateLeft() {
+            if (isRotating) return;
+            isRotating = true;
+
+            let frames = 0;
+            stepleft++;
+            let yCopy2 = y - 90;
+
+            function animate2() {
+                y -= 2.5;
+                frames++;
+
+                if (stepleft <= 4 && y > yCopy2) {
+                    requestAnimationFrame(animate2);
+                } else {
+                    console.log('Rotation complete');
+                    stepleft = 0;
+                    isRotating = false; // Reset the rotation flag
+                }
+            }
+
+            animate2();
+        }
+
+    </script>
+
+</body>
+
+</html>

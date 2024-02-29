@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Interactive Quiz Game</title>
+    <link href="style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="pointCont">
+        <div class="point">0</div>
+        <div class="line"></div>
+        <div class="wrong">0</div>
+    </div>
+
+
+
+    <div class="container">
+        <div class="presentation">
+            <div class="question">
+                <h2 id="question">Which HTML attribute specifies an alternate text for an image, if the image cannot be
+                    displayed?</h1>
+            </div>
+        </div>
+        <div class='answer-box'>
+            <div class="answer-row">
+                <button onmouseover="disappear()" onmouseout="appear()" id="a1" class="answer a1">Answer 1</button>
+                <button onmouseover="disappear()" onmouseout="appear()" id="a2" class="answer a2">Answer 2</button>
+            </div>
+            <div class="answer-row">
+                <button onmouseover="disappear()" onmouseout="appear()" id="a3" class="answer a1">Answer 3</button>
+                <button onmouseover="disappear()" onmouseout="appear()" id="a4" class="answer a2">Answer 4</button>
+            </div>
+        </div>
+
+    </div>
+    <div id="winner">
+        <h2>
+            <div id="winSelect" style="font-size: 70px;"></div>
+        </h2>
+
+        <button class="final" onclick="again()">Play again</button>
+
+
+
+    </div>
+    <div class=selector>
+
+        <select id="topic-select">
+            <option value="unusual_food">Weird Foods</option>
+            <option value="code">Code</option>
+            <option value="general_knowledge">General Knowledge</option>
+            <option value="politics">Politics</option>
+            <option value="science">Science</option>
+            <option value="business">Business</option>
+
+            <option value="royals">Strange Royals</option>
+        </select>
+        <button onclick="redirectToPage()">Go</button>
+        <button onclick="goHome()">HOME</button>
+    </div>
+
+    <script>
+        function goHome() {
+            window.location.href = '/index.html';
+
+        }
+        function disappear() {
+            document.querySelectorAll('.answer').forEach(function (button) {
+                button.style.opacity = '0.5';
+            });
+
+            event.currentTarget.style.opacity = '1';
+        }
+
+        function appear() {
+            document.querySelectorAll('.answer').forEach(function (button) {
+                button.style.opacity = '1';
+            });
+        }
+
+        let lastIndex = -1;
+
+
+
+        let qList = [
+            "Which country is known for eating fried tarantulas?",
+            "What is Casu Marzu, found in Italy?",
+            "What is the main ingredient in Iceland's Hákarl?",
+            "Where is it common to eat live octopus (Sannakji)?",
+            "What is Balut, a popular street food in the Philippines?",
+            "In which country is it a tradition to eat fermented shark?",
+            "What is Durian, known for its strong odor?",
+            "Which country is known for a dish called 'Surströmming'?",
+            "What is the key ingredient in the Korean dish Beondegi?",
+            "Where can you find the delicacy of deep-fried guinea pigs?",
+            "What is the main ingredient in the Japanese dish Fugu?",
+            "What is Century Egg, a Chinese delicacy?",
+            "Where is the dish of roasted guinea pig, known as 'Cuy', popular?",
+            "Which country is known for eating sheep's head (Svið)?",
+            "What is 'Stargazy Pie', a dish from England, known for?",
+            "What is the main ingredient in the Australian dish 'Witchetty Grub'?",
+            "In which country would you find 'Fried Brain Sandwiches'?",
+            "What type of meat is used in South Africa's Biltong?",
+            "What is the key ingredient in the traditional Mongolian dish Boodog?",
+            "What is Lutefisk, commonly eaten in Norway?",
+            "Which country is known for eating live 'Drunken Shrimp'?",
+            "In which country is bird's nest soup a delicacy?",
+            "What is the main component of the Sardinian dish 'Maggot Cheese'?",
+            "Where is 'Kiviak', a dish made from fermented birds, a traditional food?",
+            "What is the key ingredient in Scotland's traditional dish Haggis?",
+            "What is 'Rocky Mountain Oysters' in American cuisine?",
+            "In Japan, what is 'Shirako'?",
+            "What is the main ingredient in the traditional Scottish dish 'Black Pudding'?",
+            "Which country is known for a dish called 'Tuna Eyeballs'?",
+            "What is 'Muktuk', traditionally eaten by indigenous peoples of the Arctic?",
+            "What is the main ingredient in the French dish 'Foie Gras'?",
+            "What is 'Escamoles', a delicacy in Mexico?",
+            "What is the main ingredient in 'Airag', a traditional Mongolian beverage?",
+            "In which country is 'Fried Spider' a delicacy?",
+            "What is the main ingredient in the Icelandic dish 'Hákarl'?",
+            "What is 'Chapulines', commonly eaten in Mexico?",
+            "In which country is 'Yak Penis' considered a delicacy?",
+            "What is 'Huitlacoche', commonly used in Mexican cuisine?",
+            "What type of meat is 'Kangaroo Steak' made from?",
+            "Which country is known for a dish called 'Bird's Nest Soup'?",
+            "What is 'Cobra Heart', a delicacy in Vietnam, traditionally eaten with?",
+            "What is 'Kopi Luwak', one of the world's most expensive coffees, made from?",
+            "What is the main ingredient in the German dish 'Blood Tongue'?",
+            "What is 'Snake Wine', commonly found in Southeast Asia?",
+            "In which country is 'Fugu', or pufferfish, a famous delicacy?"
+
+        ];
+
+        let aList = [
+            ["Cambodia", "Thailand", "Vietnam", "Laos"],
+            ["Cheese with live maggots", "A type of pasta", "A tomato sauce", "A wine"],
+            ["Shark", "Whale", "Cod", "Salmon"],
+            ["South Korea", "Japan", "China", "Vietnam"],
+            ["Fertilized duck egg", "Chicken embryo", "Boiled egg", "Duck liver"],
+            ["Iceland", "Norway", "Sweden", "Finland"],
+            ["A fruit", "A vegetable", "A fish", "A bird"],
+            ["Sweden", "Norway", "Finland", "Denmark"],
+            ["Silkworm pupae", "Beetle larvae", "Caterpillars", "Earthworms"],
+            ["Peru", "Ecuador", "Bolivia", "Colombia"],
+            ["Pufferfish", "Salmon", "Tuna", "Mackerel"],
+            ["Preserved duck egg", "Chicken egg", "Quail egg", "Goose egg"],
+            ["Peru", "Bolivia", "Ecuador", "Colombia"],
+            ["Iceland", "Norway", "Sweden", "Denmark"],
+            ["Fish heads poking out of the pie", "Star-shaped crust", "Unique spices", "Being baked under the stars"],
+            ["A type of large worm", "A plant root", "A small mammal", "A fish"],
+            ["United States", "Germany", "England", "Australia"],
+            ["Dried beef", "Dried pork", "Dried lamb", "Dried chicken"],
+            ["Goat", "Sheep", "Camel", "Horse"],
+            ["Dried whitefish", "Salmon", "Cod", "Herring"],
+            ["China", "Japan", "Vietnam", "Thailand"],
+            ["China", "Japan", "Vietnam", "Thailand"],
+            ["Sheep's milk cheese", "Cow's milk cheese", "Goat's milk cheese", "Buffalo's milk cheese"],
+            ["Greenland", "Norway", "Iceland", "Sweden"],
+            ["Sheep's organs", "Beef", "Pork", "Chicken"],
+            ["Bull testicles", "Rocky mountain clams", "Oysters", "Snails"],
+            ["Fish sperm", "Raw fish skin", "Fish liver", "Fish eyeballs"],
+            ["Blood sausage", "Lamb", "Beef", "Pork"],
+            ["Japan", "China", "Vietnam", "Thailand"],
+            ["Whale skin and blubber", "Seal meat", "Fish", "Reindeer meat"],
+            ["Duck or goose liver", "Chicken breast", "Pork belly", "Beef liver"],
+            ["Ant larvae", "Grasshoppers", "Earthworms", "Beetles"],
+            ["Fermented mare's milk", "Goat's milk", "Yak's milk", "Camel's milk"],
+            ["Cambodia", "Thailand", "Vietnam", "Laos"],
+            ["Fermented shark", "Raw fish", "Seal meat", "Whale blubber"],
+            ["Grasshoppers", "Crickets", "Beetles", "Worms"],
+            ["China", "Japan", "Mongolia", "South Korea"],
+            ["Corn fungus", "Mushrooms", "Truffles", "Fermented beans"],
+            ["Kangaroo", "Deer", "Buffalo", "Rabbit"],
+            ["China", "Vietnam", "Thailand", "Japan"],
+            ["Rice wine or liquor", "Soy sauce", "Tea", "Water"],
+            ["Civet cat excreted beans", "Monkey picked beans", "Elephant digested beans", "Bird processed beans"],
+            ["Pig's tongue", "Cow's tongue", "Sheep's tongue", "Deer's tongue"],
+            ["Rice wine with a snake inside", "Snake blood", "Snake meat", "Snake venom"],
+            ["Japan", "China", "Korea", "Vietnam"]
+
+        ];
+
+
+
+        function getRandomNumber(lastIndex) {
+            let newIndex;
+            do {
+                newIndex = Math.floor(Math.random() * 45);
+            } while (newIndex === lastIndex);
+            return newIndex;
+        }
+
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+        function again() {
+            document.getElementById("winner").style.visibility = "hidden";
+            let nUmElement = document.querySelector(".point");
+            nUmElement.textContent = 0
+            let numElement = document.querySelector(".wrong");
+            numElement.textContent = 0;
+        }
+
+        function displayQuestion() {
+            const index = getRandomNumber(lastIndex);
+            lastIndex = index;
+            const area = document.getElementById("question");
+            area.textContent = qList[index];
+
+            const answers = [...aList[index]]; // Create a copy of the answers array
+            shuffleArray(answers); // Shuffle the answers
+
+            // Assign shuffled answers to buttons and add 'correct' class to the correct one
+            for (let i = 0; i < 4; i++) {
+                const button = document.getElementById('a' + (i + 1));
+                button.textContent = answers[i];
+                button.classList.remove('correct'); // Remove the class if it was previously added
+                if (answers[i] === aList[index][0]) { // Check if it's the correct answer
+                    button.classList.add('correct');
+                }
+            }
+        }
+
+        function redirectToPage() {
+            var selectedTopic = document.getElementById("topic-select").value;
+            window.location.href = selectedTopic + ".html";
+        }
+
+
+
+
+
+        function add() {
+            let numElement = document.querySelector(".point");
+            let num = parseFloat(numElement.textContent);
+            num = num + 1;
+            numElement.textContent = num;
+
+            if (num >= 10) {
+                document.getElementById("winner").style.visibility = "visible"; // Corrected the typo here
+                document.getElementById("winSelect").textContent = "You win";
+
+            }
+        }
+        function min() {
+
+            let numElement = document.querySelector(".point");
+            let num = parseFloat(numElement.textContent);
+            if (num > 0) {
+                num = num - 1;
+                numElement.textContent = num;
+            }
+        }
+        function addwrong() {
+            let numElement = document.querySelector(".wrong");
+            let num = parseFloat(numElement.textContent);
+            num = num + 1;
+            numElement.textContent = num;
+
+
+            if (num >= 10) {
+                document.getElementById("winner").style.visibility = "visible"; // Corrected the typo here
+                document.getElementById("winSelect").textContent = "You lose";
+            }
+        }
+
+
+
+        document.addEventListener("click", function (event) {
+            if (event.target.classList.contains("correct") && event.target.classList.contains("answer")) {
+                console.log('Correct answer clicked!');
+                add()
+                displayQuestion()
+            } else if (event.target.classList.contains("answer")) {
+                console.log('Incorrect answer clicked!');
+                addwrong()
+                displayQuestion();
+            }
+
+
+
+        });
+
+
+
+
+
+
+
+
+
+
+        document.addEventListener('keydown', function (event) {
+
+            if (event.key === 'q') {
+                console.log('The "q" key was pressed.');
+                displayQuestion()
+            }
+            if (event.key === 'p') {
+                console.log('The "p" key was pressed.');
+                add()
+            }
+            if (event.key === 'Backspace') {
+                console.log('The "Backspace" key was pressed.');
+                min()
+            }
+        });
+
+        displayQuestion()
+
+
+    </script>
+
+
+</body>
+
+</html>
