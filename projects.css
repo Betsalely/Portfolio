@@ -24,7 +24,7 @@ html {
     margin-left: -400px;
 }
 
-.underline {}
+
 
 .underline::after {
     content: '';
