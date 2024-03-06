@@ -39,6 +39,15 @@ html {
     transition: transform 0.25s ease-out;
 }
 
+.cursor {
+    cursor: pointer;
+}
+
+
+.not-allowed {
+    cursor: url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Pointing_hand_cursor_vector.svg/1280px-Pointing_hand_cursor_vector.svg.png);
+}
+
 .grow:hover {
     transform: scale(1.3);
 

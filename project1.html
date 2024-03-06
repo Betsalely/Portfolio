@@ -30,11 +30,10 @@
                 <p>
                     This has to be a long espcription of what the project is and has this list:
                 <ul>
-                    <li><a href="#Step1">Step 1 (design and plan)</a></li>
-                    <li><a href="#Step2">Step 2 started working</a></li>
-                    <li><a href="#Step3">fixed designs based on feedback</a></li>
-                    <li><a href="#Step4">Finished product </a></li>
-                    <li><a href="#Step5">Reflection </a></li>
+                    <li class="cursor"><a onclick="scrollcenter('overview')">Overview</a></li>
+                    <li class="cursor"><a onclick="scrollcenter('end-users')">End users</a></li>
+                    <li class="cursor"><a onclick="scrollcenter('end-implications')">Implications</a></li>
+                    <li class="not-allowed"><a href="project1dev.html">Development</a></li>
                 </ul>
                 </p>
 
@@ -50,7 +49,7 @@
         <br>
         <div class="intro txtL">
             <div>
-                <h2>Overview</h2>
+                <h2 id="overview">Overview</h2>
                 <P> THIS IS THE OVERBVIW
                     GAJGJHGAJHGJGJHGSJAHGKHJ DBJKHGAJGJWgjhadgkj ahkjfgajkhgfah
                     bkjfbdkjbakjbsjkhabfjkhabkjshkjackja bkhjcbakjbckjbackjei uhskdhcsjddgciuy
@@ -60,7 +59,8 @@
                     Lorem Ipsum v vLorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
                 </P>
 
-                <a href='home_page.html' class="OWLink" id="OWLink" onmouseover="grow(this)" onmouseout="shrink(this)">
+                <a href='project1dev.html' class="OWLink" id="OWLink" onmouseover="grow(this)"
+                    onmouseout="shrink(this)">
                     View project <i class="fa fa-arrow-right"></i></a>
             </div>
         </div>
@@ -80,7 +80,7 @@
     <br>
     <div class="intro small txtR">
         <div>
-            <h2>End Users</h2>
+            <h2 id="end-users">End Users</h2>
             <P> This describes the end users. there will be way more text so it centers more. Lorem Ipsum
                 Lorem Ipsum Lorem Ipsum Lorem Ipsum v v vLorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
                 Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum v v v Lorem Ipsum Lorem Ipsum Lorem Ipsum v
@@ -103,7 +103,7 @@
     <br>
     <div class="intro S3">
         <div>
-            <h2>Implications</h2>
+            <h2 id="implications">Implications</h2>
             <div class="implications linktext">
                 <ul class="nav__items implications__content">
                     <li class="grow underline"><a onclick="scrollcenter('aesthetics')" id="aesthetics"
