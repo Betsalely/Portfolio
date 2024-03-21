@@ -24,7 +24,21 @@
     <div class="main">
         <div class="start">
             <h1>Task 1</h1>
-            <h2>Develeopment</h2>
+            <h2 id="title">Develepment</h2>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div id="loremIp" style="padding:50px 10px;width:49%;"> This is my first 2 poinmt turnaround
+                attempt. We see an
+                assasin character on its side, its floating arm and a front facing view. There is a capelet to add
+                personlaity to the design. initiually i wanted to add its dagger but after recieving feedback ultimatly
+                decided agaisnt it and rather add it later in the design.</div>
+            <div class="polyimg" style="margin-top:-220.5px; float: right; width:49%; "><img
+                    src="/images/low poly first design.jpg"></div>
+
+
+
 
 
 
@@ -32,13 +46,68 @@
 
 
 
+
     </div>
+    <button onclick="nextSlide()" class="arrow leftarrow"><i class="fa fa-arrow-left"></i></button>
+    <button onclick="lastSlide()" class="arrow rightarrow"><i class="fa fa-arrow-right"></i></button>
 
 
 
 
 
     <script>
+        let slide = 0
+        function nextSlide() {
+            var title = document.getElementById('title')
+            var loremIp = document.getElementById('loremIp')
+
+            if (slide === 0) {
+                slide++
+                //slide 1
+                title.innerText = "Testing"
+                loremIp.innerText = "testing testing"
+
+            } else if (slide === 3) {
+                slide - 3;
+                //slide 0
+                title.innerText = "Development"
+                loremIp.innerText = "This is my first 2 point turnaround attempt.We see asassasin character on its side, its floating arm and a front facing view.There is a capelet to add personlaity to the design.initiually i wanted to add its dagger but after recieving feedback ultimatly decided agaisnt it and rather add it later in the design"
+
+            } else if (slide === 2) {
+                //slide 3
+                slide++
+            } else (
+                //slide 4
+                slide++
+            )
+        }
+
+
+        function lastSlide() {
+            var title = document.getElementById('title')
+            var loremIp = document.getElementById('loremIp')
+            if (slide === 4) {
+                slide--;
+                //slide 3
+            } else if (slide === 3) {
+                slide--;
+                //slide 2
+
+
+            } else if (slide === 2) {
+                slide--
+                //slide 1
+                title.innerText = "Testing"
+                loremIp.innerText = "testing testing"
+            } else {
+                slide++
+                //slide 0
+                title.innerText = "Development"
+                loremIp.innerText = "This is my first 2 point turnaround attempt.We see asassasin character on its side, its floating arm and a front facing view.There is a capelet to add personlaity to the design.initiually i wanted to add its dagger but after recieving feedback ultimatly decided agaisnt it and rather add it later in the design"
+
+            }
+        }
+
 
     </script>
 

@@ -88,6 +88,10 @@ td {
     line-height: 30px;
 }
 
+.polyimg img {
+    width: 500px;
+    rotate: 180deg;
+}
 
 .not-allowed {
     cursor: url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Pointing_hand_cursor_vector.svg/1280px-Pointing_hand_cursor_vector.svg.png);
