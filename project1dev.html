@@ -24,15 +24,16 @@
     <div class="main">
         <div class="start">
             <h1>Task 1</h1>
-            <h2 id="title">Develepment</h2>
+            <h2 id="title">Development</h2>
             <br>
             <br>
             <br>
             <br>
-            <div id="loremIp" style="padding:50px 10px;width:49%;"> This is my first 2 poinmt turnaround
+            <div id="loremIp" style="padding:50px 10px;width:49%; min-height: 150px;"> This is my first 2 point
+                turnaround
                 attempt. We see an
                 assasin character on its side, its floating arm and a front facing view. There is a capelet to add
-                personlaity to the design. initiually i wanted to add its dagger but after recieving feedback ultimatly
+                personality to the design. Initially I wanted to add its dagger but after recieving feedback ultimatly
                 decided agaisnt it and rather add it later in the design.</div>
             <div class="polyimg" style="margin-top:-220.5px; float: right; width:49%; "><img
                     src="/images/low poly first design.jpg"></div>
@@ -48,8 +49,8 @@
 
 
     </div>
-    <button onclick="nextSlide()" class="arrow leftarrow"><i class="fa fa-arrow-left"></i></button>
-    <button onclick="lastSlide()" class="arrow rightarrow"><i class="fa fa-arrow-right"></i></button>
+    <button onclick="lastSlide()" class="arrow leftarrow"><i class="fa fa-arrow-left"></i></button>
+    <button onclick="nextSlide()" class="arrow rightarrow"><i class="fa fa-arrow-right"></i></button>
 
 
 
@@ -65,35 +66,39 @@
                 slide++
                 //slide 1
                 title.innerText = "Testing"
-                loremIp.innerText = "testing testing"
+                loremIp.innerText = "I wanted to test wether the design was aesthetically pleasing. I got the advice and feedback form 3 people. Each of them individually had an opinion on what could be improved but that will be covered in the 'feedback' section."
 
             } else if (slide === 3) {
-                slide - 3;
+                slide -= 3;
                 //slide 0
                 title.innerText = "Development"
-                loremIp.innerText = "This is my first 2 point turnaround attempt.We see asassasin character on its side, its floating arm and a front facing view.There is a capelet to add personlaity to the design.initiually i wanted to add its dagger but after recieving feedback ultimatly decided agaisnt it and rather add it later in the design"
+                loremIp.innerText = "This is my first 2 point turnaround attempt.We see asassasin character on its side, its floating arm and a front facing view.There is a capelet to add personality to the design. Initially I wanted to add its dagger but after recieving feedback ultimatly decided agaisnt it and rather add it later in the design"
 
             } else if (slide === 2) {
                 //slide 3
                 slide++
                 title.innerText = "Feedback"
-                loremIp.innerText = "This is my first 2 point turnaround attempt.We see asassasin character on its side, its floating arm and a front facing view.There is a capelet to add personlaity to the design.initiually i wanted to add its dagger but after recieving feedback ultimatly decided agaisnt it and rather add it later in the design"
+                loremIp.innerText = "I recieved some feedback regarding my original cloak design. Initially it would only cover the head and shoulders, but 3 people commented on how the cape should be longer. From this feedback, in my final design a cloak will be added and its length will go to approximatly the character's lower buttocks."
 
-            } else (
-                //slide 4
+            } else {
                 slide++
-            )
+                //slide2
+                title.innerText = "improvements";
+                loremIp.innerText = "improving"
+            }
+
+
         }
 
 
         function lastSlide() {
             var title = document.getElementById('title')
             var loremIp = document.getElementById('loremIp')
-            if (slide === 4) {
+            if (slide === 1) {
                 slide--;
                 //slide 3
                 title.innerText = "Feedback"
-                loremIp.innerText = "This is my first 2 point turnaround attempt.We see asassasin character on its side, its floating arm and a front facing view.There is a capelet to add personlaity to the design.initiually i wanted to add its dagger but after recieving feedback ultimatly decided agaisnt it and rather add it later in the design"
+                loremIp.innerText = "I recieved some feedback regarding my original cloak design. &nbsp Initially it would only cover the head and shoulders, but 3 people commented on how the cape should be longer. From this feedback, in my final design a cloak will be added and its length will go to approximatly the character's lower buttocks."
 
             } else if (slide === 3) {
                 slide--;
@@ -106,7 +111,7 @@
                 title.innerText = "Testing"
                 loremIp.innerText = "testing testing"
             } else {
-                slide++
+                slide += 3
                 //slide 0
                 title.innerText = "Development"
                 loremIp.innerText = "This is my first 2 point turnaround attempt.We see asassasin character on its side, its floating arm and a front facing view.There is a capelet to add personlaity to the design.initiually i wanted to add its dagger but after recieving feedback ultimatly decided agaisnt it and rather add it later in the design"
