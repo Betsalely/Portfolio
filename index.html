@@ -97,11 +97,11 @@
 
         #navbar {
             background-color: #333;
-            overflow: hidden;
+
             position: fixed;
             top: 0;
             width: 100%;
-            height: 80px;
+            min-height: 80px;
             display: flex;
             justify-content: space-around;
             align-items: center;
@@ -109,18 +109,18 @@
             z-index: 1000;
         }
 
-        #navbar a {
+        /* #navbar a {
             color: #DDD;
             padding: 10px 15px;
             text-decoration: none;
             font-size: 18px;
             transition: background-color 0.6s, color 0.3s, box-shadow 0.3s;
-            /* added box-shadow transition */
+    
             height: 100%;
             text-align: center;
             line-height: 80px;
-            /* Adjust the line-height to match the height of your navbar */
-        }
+           
+        } */
 
         #navbar a:hover {
             background-color: #ddd;
@@ -221,18 +221,116 @@
             text-decoration: none;
             font-size: 14px;
         }
+
+
+
+        /* Dropdown container */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Dropdown button */
+        .dropdown .dropbtn {
+            color: #DDD;
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: background-color 0.6s, color 0.3s, box-shadow 0.3s;
+            /* added box-shadow transition */
+            height: 100%;
+            text-align: center;
+            line-height: 80px;
+            /* Adjust the line-height to match the height of your navbar */
+            background-color: #333;
+            border: none;
+        }
+
+        /* Dropdown button on hover & focus */
+        .dropdown:hover .dropbtn {
+            background-color: #ddd;
+            color: black;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            /* added box shadow on hover */
+        }
+
+        /* Dropdown content (hidden by default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            z-index: 1;
+            top: 100%;
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            display: block;
+            text-align: left;
+            text-decoration: none;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {
+            background-color: #555;
+        }
+
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
     </style>
 </head>
 
 <body>
     <!-- <span class="fa-solid fa-user"></span> -->
-    <div id="navbar">
+    <!-- <div id="navbar">
         <a href="project1.html">Project 1</a>
         <a href="">Project 2 <i class="fa-face fa-face-awesome"></i></a>
         <a href="">Project 3 <i class="fa fa-person-rays"></i></a>
         <a href="https://github.com/Betsalely/Portfolio/tree/main" target="_blank">Github Repo <i
                 class="fa-brands fa-github"></i></a>
+    </div> -->
+    <div id="navbar">
+        <div class="dropdown">
+            <a href="#" class="dropbtn">Project 1</a>
+            <div class="dropdown-content">
+                <a href="project1.html">Project 1</a>
+                <a href="project1_task1.html">Task 1</a>
+                <a href="project1_task2.html">Task 2</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#" class="dropbtn">Project 2 <i class="fa-face fa-face-awesome"></i></a>
+            <div class="dropdown-content">
+                <a href="#">Project 2</a>
+                <a href="#">Task 1</a>
+                <a href="#">Task 2</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#" class="dropbtn">Project 3 <i class="fa fa-person-rays"></i></a>
+            <div class="dropdown-content">
+                <a href="#">Project 3</a>
+                <a href="#">Task 1</a>
+                <a href="#">Task 2</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="https://github.com/Betsalely/Portfolio/tree/main" target="_blank" class="dropbtn">Github Repo <i
+                    class="fa-brands fa-github"></i></a>
+            <div class="dropdown-content">
+                <a href="https://github.com/Betsalely/Portfolio/tree/main">Github Repo</a>
+                <a href="#">Task 1</a>
+                <a href="#">Task 2</a>
+            </div>
+        </div>
     </div>
+
+
 
     <div class="content">
         <div class="heading">
@@ -370,21 +468,6 @@
             cube.style.transform = `rotateX(${x}deg) rotateY(${y}deg)`;
         }
 
-        // document.addEventListener('keydown', function(e) {
-        //     if (e.key === 'c' || e.key === 'C') {
-        //         cursorMode = !cursorMode;
-        //         if (cursorMode) {
-        //             x = 0;
-        //             y = 0;
-        //             updateRotation();
-        //         }
-        //     }
-
-        //     if (keyState.hasOwnProperty(e.key)) {
-        //         keyState[e.key] = true;
-        //         updateRotation();
-        //     }
-        // });
 
         document.addEventListener('keyup', function (e) {
             if (keyState.hasOwnProperty(e.key)) {

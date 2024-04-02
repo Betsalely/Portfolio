@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+    </link>
+    <link rel="stylesheet" href="projects.css">
+    <style>
+        .start {
+            min-height: 80vh;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <a href="project2.html" class="dropbtn">Project 2 <i class="fa-face fa-face-awesome"></i></a>
+            <div class="dropdown-content">
+                <a href="#">Project 2</a>
+                <a href="#">Task 1</a>
+                <a href="#">Task 2</a>
+            </div>
+        </div>
+        <a href="">Project 3 <i class="fa fa-person-rays"></i></a>
+        <a href="https://github.com/Betsalely/Portfolio/tree/main" target="_blank">Github Repo <i
+                class="fa-brands fa-github"></i></a>
+    </div>
+    <div class="main">
+        <div class="start">
+            <h1>Task 2</h1>
+            <h2 id="title">Development</h2>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div id="loremIp" style="padding:50px 10px;width:49%; min-height: 150px;">
+                In making my low poly character's head, I focused on building its shape using basic shapes like
+                triangles and squares. I shaped each part, like the face and the smaller features such as the eyes and
+                mouth(covered by a mask). imagine it like making a character with digital clay, except the clay
+                is blocky. Although I didn't add colors, I still paid close attention to details to make sure the
+                character looked realistic and interesting while maintaining the low poly design. </div>
+            <div class="polyimg2" style="margin-top:-220.5px; float: right; width:49%; "><img id="image-disp"
+                    src="/images/head5.PNG">
+            </div>
+
+
+
+
+
+
+        </div>
+
+
+
+
+    </div>
+    <button onclick="lastSlide()" class="arrow leftarrow"><i class="fa fa-arrow-left"></i></button>
+    <button onclick="nextSlide()" class="arrow rightarrow"><i class="fa fa-arrow-right"></i></button>
+
+
+
+
+
+    <script>
+        let slide = 0
+        function nextSlide() {
+            var title = document.getElementById('title');
+            var loremIp = document.getElementById('loremIp');
+            var image = document.getElementById('image-disp');
+
+            if (slide === 0) {
+                slide++;
+                // slide 1
+                title.innerText = "Development";
+                loremIp.innerText = "In making my low poly character's head, I focused on building its shape using basic shapes like triangles and squares. I shaped each part, like the face and the smaller features such as the eyes and mouth(covered by a mask). imagine it like making a character with digital clay, except the clay is blocky. Although I didn't add colors, I still paid close attention to details to make sure the character looked realistic and interesting while maintaining the low poly design.";
+                image.setAttribute('src', '/images/head5.PNG');
+            } else if (slide === 1) {
+                slide++;
+                // slide 2
+                title.innerText = "Testing";
+                loremIp.innerText = "I realized something wasn't quite right with the character's head because the front looked a little too thin, not really capturing the bold, blocky vibe I was aiming for with this assassin character. To address this, I made some changes. I scrapped my first idea, which felt squeezed, and instead tried for a more defined, rectangular shape. This change added a lot more character. this gives the assassin a stronger look and better design. This better matched my idea of the design.";
+                image.setAttribute('src', '/images/head1.PNG');
+            } else if (slide === 2) {
+                slide++;
+                // slide 3
+                title.innerText = "Feedback - before";
+                loremIp.innerText = "Without even realizing it the back of the character's head kind of flattened out. I got the feefdback form two people who both agreed the flat shape on the back brought the whole design down. Every single vertice was kind of collapsing into the head whoch gave a really un-aesthetic vibe to the character. Thankfully the vertices were easily fixed innto a better position as you can see in the following develempont page. For assisin character s[ecifically the hood is critical so fixing the back of the cloak brough the design back.";
+                image.setAttribute('src', '/images/head2.PNG');
+            } else if (slide === 4) {
+                slide = 0;
+                // slide 0
+                title.innerText = "Improvements";
+                loremIp.innerText = "Improving.";
+            } else {
+                slide = 4;
+                // slide 4
+                title.innerText = "Feedback after";
+                loremIp.innerText = "Based on the feedback I recieved, the vertices were moved into a place that better suited the whole design. The rounded finish";
+                image.setAttribute('src', '/images/head4.PNG');
+            }
+        }
+
+
+        function lastSlide() {
+            var title = document.getElementById('title');
+            var loremIp = document.getElementById('loremIp');
+            var image = document.getElementById('image-disp');
+
+            if (slide === 4) {
+                slide = 3;
+                // slide 3
+                title.innerText = "Feedback - before";
+                loremIp.innerText = "Without even realizing it the back of the character's head kind of flattened out. I got the feefdback form two people who both agreed the flat shape on the back brought the whole design down. Every single vertice was kind of collapsing into the head whoch gave a really un-aesthetic vibe to the character. Thankfully the vertices were easily fixed innto a better position as you can see in the following develempont page. For assisin character s[ecifically the hood is critical so fixing the back of the cloak brough the design back.";
+                image.setAttribute('src', '/images/head2.PNG');
+            } else if (slide === 1) {
+                slide = 0;
+                // slide 0
+                title.innerText = "Improvements";
+                loremIp.innerText = "Improving.";
+            } else if (slide === 2) {
+                slide = 1;
+                // slide 1
+                title.innerText = "Development";
+                loremIp.innerText = "In making my low poly character's head, I focused on building its shape using basic shapes like triangles and squares. I shaped each part, like the face and the smaller features such as the eyes and mouth(covered by a mask). imagine it like making a character with digital clay, except the clay is blocky. Although I didn't add colors, I still paid close attention to details to make sure the character looked realistic and interesting while maintaining the low poly design.";
+                image.setAttribute('src', '/images/head5.PNG');
+            } else if (slide === 3) {
+                slide = 2;
+                // slide 2
+                title.innerText = "Testing";
+                loremIp.innerText = "I realized something wasn't quite right with the character's head because the front looked a little too thin, not really capturing the bold, blocky vibe I was aiming for with this assassin character. To address this, I made some changes. I scrapped my first idea, which felt squeezed, and instead tried for a more defined, rectangular shape. This change added a lot more character. this gives the assassin a stronger look and better design. This better matched my idea of the design.";
+                image.setAttribute('src', '/images/head1.PNG');
+            } else {
+                slide = 4;
+                // slide 4
+                title.innerText = "Feedback - after";
+                loremIp.innerText = "Withou even realizing it the back of the character's head kind of flattened out. I got the feefdback form two people who both agreed the flat shape on the back brought";
+                image.setAttribute('src', '/images/head4.PNG');
+            }
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>
