@@ -32,20 +32,24 @@
     </div>
     <div class="main">
         <div class="start">
-            <h1>Task 2</h1>
+            <h1>Task 3 - armarature</h1>
             <h2 id="title">Development</h2>
             <br>
             <br>
             <br>
             <br>
             <div id="loremIp" style="padding:50px 10px;width:49%; min-height: 150px;">
-                In making my low poly character's head, I focused on building its shape using basic shapes like
-                triangles and squares. I shaped each part, like the face and the smaller features such as the eyes and
-                mouth(covered by a mask). imagine it like making a character with digital clay, except the clay
-                is blocky. Although I didn't add colors, I still paid close attention to details to make sure the
-                character looked realistic and interesting while maintaining the low poly design. </div>
-            <div class="polyimg2" style="margin-top:-220.5px; float: right; width:49%; "><img id="image-disp"
-                    src="/images/head5.PNG">
+                I want to apologise as getting screenshots of my armarature at this time in not possible as all the
+                computers are being used and I forgot to save them to my private repositry. I did end up taking one
+                picture whichg could be used (this isnt the one i used in my design rather one that is similar to it I
+                foumnd online as public domain). During the develepment of my armarature and animation I had to restart
+                multiple times even though most of the time I couldnt figure out what went wrong. The first time my leg
+                started spinning in random directions whenever moved. Then my second attempt the feet wouldnt stop at
+                the floor despite having the correct targets. It was all really strange where I just couldnt get it
+                right despite following every instruction. In my 4th attempt for some reasons it decided to work despite
+                following the same instructions.</div>
+            <div class="polyimg3" style="margin-top:-350.5px;margin-left:150px; float: right; height: 20px;"><img
+                    id="image-armarature" src="/images/armarature.png">
             </div>
 
 
@@ -77,26 +81,26 @@
                 slide++;
                 // slide 1
                 title.innerText = "Development";
-                loremIp.innerText = "In making my low poly character's head, I focused on building its shape using basic shapes like triangles and squares. I shaped each part, like the face and the smaller features such as the eyes and mouth(covered by a mask). imagine it like making a character with digital clay, except the clay is blocky. Although I didn't add colors, I still paid close attention to details to make sure the character looked realistic and interesting while maintaining the low poly design.";
-                image.setAttribute('src', '/images/head5.PNG');
+                loremIp.innerText = "I want to apologise as getting screenshots of my armarature at this time in not possible as all the computers are being used and I forgot to save them to my private repositry. I did end up taking one picture whichg could be used (this isnt the one i used in my design rather one that is similar to it I foumnd online as public domain). During the develepment of my armarature and animation I had to restart multiple times even though most of the time I couldnt figure out what went wrong. The first time my leg started spinning in random directions whenever moved. Then my second attempt the feet wouldnt stop at the floor despite having the correct targets. It was all really strange where I just couldnt get it right despite following every instruction. In my 4th attempt for some reasons it decided to work despite following the same instructions.";
+
             } else if (slide === 1) {
                 slide++;
                 // slide 2
                 title.innerText = "Testing";
-                loremIp.innerText = "I realized something wasn't quite right with the character's head because the front looked a little too thin, not really capturing the bold, blocky vibe I was aiming for with this assassin character. To address this, I made some changes. I scrapped my first idea, which felt squeezed, and instead tried for a more defined, rectangular shape. This change added a lot more character. this gives the assassin a stronger look and better design. This better matched my idea of the design.";
-                image.setAttribute('src', '/images/head1.PNG');
+                loremIp.innerText = "As mentioned in the development section my frist three attempts were just completely wrong. I tested it by trying to move it around the space to test if the anatamoy/physics of my aramarature were working and clearly in the frist three that failed. Sometimes the lefgts would start spinning in random directions, sometimes the foot be useless and sometime the leg just dropped diown into the foot (I promise I did my targets right). Clearly the animations had to be tested by just [l;aying and watching it a couple of times";
+
             } else if (slide === 2) {
                 slide++;
                 // slide 3
                 title.innerText = "Feedback - before";
-                loremIp.innerText = "Without even realizing it the back of the character's head kind of flattened out. I got the feefdback from two people who both agreed the flat shape on the back brought the whole design down. Every single vertice was kind of collapsing into the head which gave a really un-aesthetic vibe to the character. Thankfully the vertices were easily fixed into a better position as you can see in the following development page. For assisin character specifically the hood is critical so fixing the back of the cloak brough the design back to our original plan.";
-                image.setAttribute('src', '/images/head2.PNG');
+                loremIp.innerText = "Felix told me that in my animation it was kind of slow and this made it feel unatural. Kit agreed with that so I tried to find a way to make it faster without having to do it all over but i ended up kjusyt moving the keyframes closer together. Even that though felt as if he was just sneaking around like one of those old cartoons.";
+
             } else if (slide === 4) {
                 slide = 0;
                 // slide 0
                 title.innerText = "Improvements";
-                loremIp.innerText = "In summary the head's first design was both too narrow at the front and too flat from the side perspective. As each step explained ";
-                image.setAttribute('src', '/images/head1.PNG');
+                loremIp.innerText = "In summary all the movemnts were changed from the very first attempot but this only improved it. The skeleton and its anomations were all fixed and some extra feedback after i finished was to add a jumping animation which i tried to make as real as possible (the gravity was rather hard to emulate)";
+
             } else if (slide === 2) {
                 slide = 1;
                 // slide 1
@@ -106,8 +110,8 @@
                 slide = 4;
                 // slide 4
                 title.innerText = "Feedback after";
-                loremIp.innerText = "By meticulously adjusting the vertices, I achieved a more aesthetically pleasing design. The rounded finish that has come as a result of this adjustment he creates a more lifelike impression of a hood filled by a head. This attention to detail not only improves the visual appeal but also adds to the overall 'realness'' of the design.";
-                image.setAttribute('src', '/images/head4.PNG');
+                loremIp.innerText = "To fix the 'cartoon' look I focused on the running rather than the arm movements. focusing entirely on the lg movemnts and then on the arms allowed me to make more keyframes that focus on the realism of the movement rather than the extra parts like the neck goinng up and down. Ultimatly the goal in 3d animation is for it to emulate human movements and emotions.";
+
             }
         }
 
@@ -121,32 +125,32 @@
                 slide = 3;
                 // slide 3
                 title.innerText = "Feedback - before";
-                loremIp.innerText = "Without even realizing it the back of the character's head kind of flattened out. I got the feefdback from two people who both agreed the flat shape on the back brought the whole design down. Every single vertice was kind of collapsing into the head which gave an un-aesthetic design to the character. Thankfully the vertices were easily fixed into a better position as you can see in the following development page. For assisin character specifically the hood is critical so fixing the back of the cloak brough the design back to our original plan.";
-                image.setAttribute('src', '/images/head2.PNG');
+                loremIp.innerText = "Felix told me that in my animation it was kind of slow and this made it feel unatural. Kit agreed with that so I tried to find a way to make it faster without having to do it all over but i ended up kjusyt moving the keyframes closer together. Even that though felt as if he was just sneaking around like one of those old cartoons.";
+
             } else if (slide === 1) {
                 slide = 0;
                 // slide 0
                 title.innerText = "Improvements";
-                loremIp.innerText = "In summary the head's first design was both too narrow at the front and too flat from the side perspective. As each step explained ";
-                image.setAttribute('src', '/images/head1.PNG');
+                loremIp.innerText = "In summary all the movemnts were changed from the very first attempot but this only improved it. The skeleton and its anomations were all fixed and some extra feedback after i finished was to add a jumping animation which i tried to make as real as possible (the gravity was rather hard to emulate)";
+
             } else if (slide === 2) {
                 slide = 1;
                 // slide 1
                 title.innerText = "Development";
-                loremIp.innerText = "In making my low poly character's head, I focused on building its shape using basic shapes like triangles and squares. I shaped each part, like the face and the smaller features such as the eyes and mouth(covered by a mask). imagine it like making a character with digital clay, except the clay is blocky. Although I didn't add colors, I still paid close attention to details to make sure the character looked realistic and interesting while maintaining the low poly design.";
-                image.setAttribute('src', '/images/head5.PNG');
+                loremIp.innerText = "I want to apologise as getting screenshots of my armarature at this time in not possible as all the computers are being used and I forgot to save them to my private repositry. I did end up taking one picture whichg could be used (this isnt the one i used in my design rather one that is similar to it I foumnd online as public domain). During the develepment of my armarature and animation I had to restart multiple times even though most of the time I couldnt figure out what went wrong. The first time my leg started spinning in random directions whenever moved. Then my second attempt the feet wouldnt stop at the floor despite having the correct targets. It was all really strange where I just couldnt get it right despite following every instruction. In my 4th attempt for some reasons it decided to work despite following the same instructions.";
+
             } else if (slide === 3) {
                 slide = 2;
                 // slide 2
                 title.innerText = "Testing";
-                loremIp.innerText = "I realized something wasn't quite right with the character's head because the front looked a little too thin, not really capturing the bold, blocky vibe I was aiming for with this assassin character. To address this, I made some changes. I scrapped my first idea, which felt squeezed, and instead tried for a more defined, rectangular shape. This change added a lot more character. this gives the assassin a stronger look and better design. This better matched my idea of the design.";
-                image.setAttribute('src', '/images/head1.PNG');
+                loremIp.innerText = "As mentioned in the development section my frist three attempts were just completely wrong. I tested it by trying to move it around the space to test if the anatamoy/physics of my aramarature were working and clearly in the frist three that failed. Sometimes the lefgts would start spinning in random directions, sometimes the foot be useless and sometime the leg just dropped diown into the foot (I promise I did my targets right). Clearly the animations had to be tested by just [l;aying and watching it a couple of times";
+
             } else {
                 slide = 4;
                 // slide 4
                 title.innerText = "Feedback after";
-                loremIp.innerText = "By meticulously adjusting the vertices, I achieved a more aesthetically pleasing design. The rounded finish that has come as a result of this adjustment he creates a more lifelike impression of a hood filled by a head. This attention to detail not only improves the visual appeal but also adds to the overall 'realness'' of the design.";
-                image.setAttribute('src', '/images/head4.PNG');
+                loremIp.innerText = "To fix the 'cartoon' look I focused on the running rather than the arm movements. focusing entirely on the lg movemnts and then on the arms allowed me to make more keyframes that focus on the realism of the movement rather than the extra parts like the neck goinng up and down. Ultimatly the goal in 3d animation is for it to emulate human movements and emotions.";
+
             }
         }
 

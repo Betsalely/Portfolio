@@ -15,13 +15,12 @@
 <body>
 
     <div id="navbar">
-        <a href="index.html">Home</a>
         <div class="dropdown">
-            <a href="#" class="dropbtn">Project 2 <i class="fa-face fa-face-awesome"></i></a>
+            <a href="#" class="dropbtn">Home</a>
             <div class="dropdown-content">
-                <a href="#">Project 2</a>
-                <a href="#">Task 1</a>
-                <a href="#">Task 2</a>
+                <a href="index.html">Home</a>
+                <a href="project1_task2.html">Task 2</a>
+                <a href="project1_task3.html">Task 3</a>
             </div>
         </div>
         <a href="">Project 3 <i class="fa fa-person-rays"></i></a>
@@ -64,7 +63,7 @@
 
 
     <script>
-        let slide = 0
+        let slide = 1
         function nextSlide() {
             var title = document.getElementById('title')
             var loremIp = document.getElementById('loremIp')
@@ -73,7 +72,7 @@
                 slide++
                 //slide 1
                 title.innerText = "Testing"
-                loremIp.innerText = "I wanted to test wether the design was aesthetically pleasing. I got the advice and feedback form 3 people. Each of them individually had an opinion on what could be improved but that will be covered in the 'feedback' section."
+                loremIp.innerText = "I wanted to test wether the design was aesthetically pleasing in the eyes of other people. I got the advice and feedback form 3 people (Victor, Troy and Felix). Each of them individually had an opinion on what could be improved but that will be covered in the 'feedback' section."
 
             } else if (slide === 3) {
                 slide -= 3;
@@ -85,7 +84,7 @@
                 //slide 3
                 slide++
                 title.innerText = "Feedback"
-                loremIp.innerText = "I recieved some feedback regarding my original cloak design. Initially it would only cover the head and shoulders, but 3 people commented on how the cape should be longer. From this feedback, in my final design a cloak will be added and its length will go to approximatly the character's lower buttocks."
+                loremIp.innerText = "I recieved some feedback regarding my original cloak design. Initially it would only cover the head and shoulders, but 3 people commented on how the cape should be removed as it takes away from the design and adds uneeded flair to a stealth character. From this feedback, in my final design a cloak will be not added."
 
             } else {
                 slide++
@@ -105,8 +104,7 @@
                 slide--;
                 //slide 3
                 title.innerText = "Feedback"
-                loremIp.innerText = "I recieved some feedback regarding my original cloak design. &nbsp Initially it would only cover the head and shoulders, but 3 people commented on how the cape should be longer. From this feedback, in my final design a cloak will be added and its length will go to approximatly the character's lower buttocks."
-
+                loremIp.innerText = "I recieved some feedback regarding my original cloak design. Initially it would only cover the head and shoulders, but 3 people commented on how the cape should be removed as it takes away from the design and adds uneeded flair to a stealth character. From this feedback, in my final design a cloak will be not added."
             } else if (slide === 3) {
                 title.innerText = "improvements";
                 loremIp.innerText = "In summary, the two point turnaround was has a success form the start with minor things that could easily be changed in later stages of the design. Things like a cloak and dagger being added later in the design will not only save time but also reduce effort, work harder not smarter right?"

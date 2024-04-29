@@ -367,6 +367,7 @@ img.displaya {
     min-width: 160px;
     z-index: 1;
     top: 100%;
+
 }
 
 /* Links inside the dropdown */
@@ -386,4 +387,8 @@ img.displaya {
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+.polyimg3 {
+    transform: scale(0.5);
 }
