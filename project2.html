@@ -16,7 +16,7 @@
 
     <div id="navbar">
         <a href="index.html">Home</a>
-        <a href="project1.html">Project 1 <i class="fa-face fa-face-awesome"></i></a>
+        <a href="project2.html">Project 2 <i class="fa-face fa-face-awesome"></i></a>
         <a href="">Project 3 <i class="fa fa-person-rays"></i></a>
         <a href="https://github.com/Betsalely/Portfolio/tree/main" target="_blank">Github Repo <i
                 class="fa-brands fa-github"></i></a>
@@ -25,15 +25,22 @@
     <div class="content">
         <div class="headCont">
             <div class="heading">
-                <h1>Project 2</h1>
-                <h3>DONT KNOW WHAT IT IS YET</h3>
+                <h1>Python group project</h1>
+                <h3>Yair, Victor, Felix</h3>
                 <p>
-                    This has to be a long description of what the project is and has this list: IGNORE LIST
+                    Python group project. We are makinbg flappy bird using the pygame module. content;
                 <ul>
                     <li class="cursor"><a onclick="scrollcenter('overview')">Overview</a></li>
                     <li class="cursor"><a onclick="scrollcenter('end-users')">End users</a></li>
-                    <li class="cursor"><a onclick="scrollcenter('end-implications')">Implications</a></li>
-                    <li class="not-allowed"><a href="project2dev.html">Development</a></li>
+                    <li class="cursor"><a onclick="scrollcenter('implications')">Implications</a></li>
+                    <li class="cursor"><a onclick="scrollcenter('requirements')">Requirements</a></li>
+                    <li class="not-allowed"><a>Development</a>
+                        <ul>
+                            <li><a href="project1_task1.html">Task 1</a></li>
+                            <li><a href="project1_task2.html">Task 2</a></li>
+                        </ul>
+
+                    </li>
                 </ul>
                 </p>
 
@@ -50,24 +57,21 @@
         <div class="intro txtL">
             <div>
                 <h2>Overview</h2>
-                <P> THIS IS THE OVERBVIW
-                    GAJGJHGAJHGJGJHGSJAHGKHJ DBJKHGAJGJWgjhadgkj ahkjfgajkhgfah
-                    bkjfbdkjbakjbsjkhabfjkhabkjshkjackja bkhjcbakjbckjbackjei uhskdhcsjddgciuy
-                    sbchdgviuahjhbciuahcisueb.Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum v v vLorem Ipsum Lorem
-                    Ipsum Lorem Ipsum Lorem Ipsum Lorem
-                    Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum v v v Lorem Ipsum Lorem Ipsum
-                    Lorem Ipsum v vLorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                <P id="overviewP">We are going to be making a graphic flappy bird game in python using the pygame module
+                    in python. Flappy bird is a hard game to make but easy to play. Only two choices at any given time;
+                    jump or don’t jump. The complex part of making it lies in the aesthetics and functionality of the
+                    game. The group's objective is to make a flappy bird game that looks good, allows a player to keep
+                    track of their score and is fun to play. This means things like obstacles that move, time and a
+                    score counter will need to be added.
+
                 </P>
 
-                <a href='home_page.html' class="OWLink" id="OWLink" onmouseover="grow(this)" onmouseout="shrink(this)">
+                <a href='project1_task1.html' class="OWLink" id="OWLink" onmouseover="grow(this)"
+                    onmouseout="shrink(this)">
                     View project <i class="fa fa-arrow-right"></i></a>
             </div>
         </div>
-        <div class="intro txtR image">
-            <div>
-                <img class="display" src="images/photo.png">
-            </div>
-        </div>
+
     </div>
 
     <br>
@@ -80,29 +84,102 @@
     <div class="intro small txtR">
         <div>
             <h2>End Users</h2>
-            <P> This describes the end users. there will be way more text so it centers more. Lorem Ipsum
-                Lorem Ipsum Lorem Ipsum Lorem Ipsum v v vLorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum v v v Lorem Ipsum Lorem Ipsum Lorem Ipsum v
-                vLorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</P>
-        </div>
-    </div>
-    <div class="intro leftAllignedIMg txtL image">
-        <div>
-            <img class="display" src="images/photo.png">
-        </div>
-    </div>
+            <P id="end-usersP" class="width"> The end users for our project will mainly be students and you adults
+                (teenagers). Teenagers often look for fun games, and while some more intense gamers might enjoy games
+                like elden ring, simple games like flappy bird always have an audience. A very important aspect of
+                videogames is how much a player enjoys playing the game without it being impossibl;e. Teenagers can get
+                frustrated so to appeal to our audience we have to make a game with complexity that can also be played
+                by their 11 year old brother and their 84 year old grandfather. Other than difficulty, aesthetics are a
+                great way to keep players engaged so bright colors will interest teenagers.
 
 
+            </P>
+        </div>
+    </div>
     <br>
     <br>
     <br>
     <hr id="Step3">
+
     <br>
     <br>
     <br>
+    <div class="intro txtL">
+        <div>
+            <h2 id="requirementsP">Requirements</h2>
+            <P>Requirements are thing our project need to be succesful. Not only succes in design but also success in
+                gameplay.
+            <ul>
+                <li>
+                    <h3>Player</h3>
+                    <ul>
+                        <li>Yellow square that has the ability to move up and down.</li>
+                        <li>more detailed could be added later on in the project</li>
+                        <li>Testing includes: seeing if the player can move, if it looks good and if it can die</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Floor</h3>
+                    <ul>
+                        <li>Floor should have a gradient colour shceme. From red to black and then whenit moves it
+                            restarts like a conveyor belt</li>
+                        <li>Should move so it gives the illusion of the player moving</li>
+                        <li>Player should be able to die on it</li>
+
+                    </ul>
+                </li>
+                <li>
+                    <h3>Columns</h3>
+                    <ul>
+                        <li>Should be red all thr way through.</li>
+                        <li>Should stay still vertically but move horizontally</li>
+                        <li>Randomly generated gap, or potentially 10 predetermined gapped columns that it randomly
+                            picks from</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Background</h3>
+                    <ul>
+                        <li>Blue colour but dark enough to contrast the yellow player</li>
+                        <li>After anything is drawn it too should be redrawn</li>
+                        <li>RGB values can be chnaged at any time</li>
+
+                    </ul>
+                </li>
+                <li>
+                    <h3>Death detection</h3>
+                    <ul>
+                        <li>Anything that can kill the player should be red to show that where you die.</li>
+                        <li>Death detection will work by seeing if a column or floor square is being drawn on the same
+                            row as the player. Not column position because the player's x position is always the same
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+            </P>
+
+            <a href='project1dev.html' class="OWLink" id="OWLink" onmouseover="grow(this)" onmouseout="shrink(this)">
+                View project <i class="fa fa-arrow-right"></i></a>
+        </div>
+    </div>
+
+
+
+
+    <br>
+    <br>
+    <br>
+    <hr id="Step5">
+
+    <br>
+    <br>
+    <br>
+
+
     <div class="intro S3">
         <div>
-            <h2>Implications</h2>
+            <h2 id="implications">Implications</h2>
             <div class="implications linktext">
                 <ul class="nav__items implications__content">
                     <li class="grow underline"><a onclick="scrollcenter('aesthetics')" id="aesthetics"
@@ -111,178 +188,80 @@
                             class="link__text">Functionality</a></li>
                     <li class="grow underline"><a onclick="scrollcenter('usability')" class="link__text">Usability</a>
                     </li>
-                    <li class="grow underline"><a onclick="scrollcenter('accessibility')"
-                            class="link__text">Accessibility</a></li>
-                    <li class="grow underline"><a onclick="scrollcenter('future-proofing')"
-                            class="link__text">Future-Proofing</a></li>
-                    <li class="grow underline"><a onclick="scrollcenter('legal')" class="link__text">Legal</a></li>
+                    <li class="grow underline"><a onclick="scrollcenter('health')" class="link__text">Health and
+                            safety</a></li>
+
                 </ul>
-                <ul class="nav__items implications__content">
-                    <li class="grow underline"><a onclick="scrollcenter('intellectual-property')"
-                            class="link__text">Intellectual
-                            Property</a></li>
-                    <li class="grow underline"><a onclick="scrollcenter('ethical')" class="link__text">Ethical</a></li>
-                    <li class="grow underline"><a onclick="scrollcenter('Privacy')" class="link__text">Privacy</a></li>
-                    <li class="grow underline"><a onclick="scrollcenter('Health')" class="link__text">Health and
-                            Safety</a></li>
-                    <li class="grow underline"><a onclick="scrollcenter('Social')" class="link__text">Social</a></li>
-                    <li class="grow underline"><a onclick="scrollcenter('Cultural')" class="link__text">Cultural</a>
-                    </li>
-                </ul>
+
 
 
             </div>
         </div>
+
         <div class="paragraphs">
-            <h1 id="aestheticsP">Aesthetics</h1>
+            <h1>Aesthetics</h1>
             <h3>What Are aesthetics?</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.</p>
+            <p>The definition of 'aesthetic' is 'concerned with beauty or the appreciation of beauty'. In the case it's
+                how visually pleasing the game is. If a game has a b unhc of really bright colours and a terrible c
+                haracter design the game will seem low quality.</p>
             <br>
-            <h3>I address this by...</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.</p>
+            <h3 id="aestheticsP">I address this by...</h3>
+            <p>Colors that pop out of the screen are key to graphical games. We want to try and stick to some of the
+                original colors of the game while adding our own touches. For example the background will still be blue,
+                and the player still yellow, but the obstacles that kill you are red now. The floor is red with a
+                gradient to black because we want to be able to see the floor moving. If the floor moves it looks like
+                the player is moving more than if just the columns are moving. Despite having access to all these
+                beautiful colors one limiting aspect of the way the game is made is that we can only use a certain
+                number of ‘pixels’. The more detailed we make it the harder it is to run the program, so rather than
+                make a super detailed player a yellow square that moves up and down will suffice.
+            </p>
 
 
             <br>
-            <h1 id="functionalityP">Functionality</h1>
-            <h3>What Are aesthetics?</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.</p>
+            <h1>Functionality</h1>
+            <h3>What is functionality?</h3>
+            <p>Functionality is defined by how functional a project is, meaning if certain function
+                do what they're supposed to like if death detection is accurate </p>
             <br>
-            <h3>I address this by...</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.</p>
+            <h3 id="functionalityP">I address this by...</h3>
+            <p>Testing, testing and more testing. the only way to determine if everything works is by doing EVERYTHING.
+                Trying to do every action a player could possibly take. Wether they try and escape the map or die
+                instantly everything should work.
+            </p>
 
             <br>
-            <h1 id="usabilityP">Usability</h1>
-            <h3>What Are aesthetics?</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.</p>
+            <h1>Usability</h1>
+            <h3>What is usability?</h3>
+            <p>Usibility is best defined by how easy a it would be for a random person who knows nothing about the
+                project to use it effortlessly. </p>
             <br>
-            <h3>I address this by...</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.</p>
-
-            <br>
-            <h1 id="accessibilityP">Accessibility</h1>
-            <h3>What Are aesthetics?</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.</p>
-            <br>
-            <h3>I address this by...</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.</p>
-
-            <br>
-            <h1 id="future-proofingP">Future-proofing</h1>
-            <h3>What Are aesthetics?</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.</p>
-            <br>
-            <h3>I address this by...</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.</p>
-
-            <h1 id="legalP">Legal</h1>
-            <h3>What Are aesthetics?</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.</p>
-            <br>
-            <h3>I address this by...</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.</p>
+            <h3 id="usabilityP">I address this by...</h3>
+            <p>Simplicity of the controls. Flappy bird is great in the way that a player can only make one of two
+                choices
+                at any given point. Either they jump or don't. A space bar is quite universally known to be used as the
+                jump button but even so, a menu with instruction would be helpful.
+            </p>
 
             <br>
 
 
 
+            <h1>Health and Safety</h1>
+            <h3>What is health and safety?</h3>
+            <p>Intellectual-Property refers to the ownerships of certain things like photos or designs. If we use
+                somebody elses design without the proper licensing or crediting that's considered plagiarism and is not
+                legal.</p>
+            <br>
+            <h3 id="healthP">I address this by...</h3>
+            <p>
+                Crafting original designs is a necesary part of the creative process. By sticking to designs made by me,
+                we ensure my work is free from plagiarism and completly authentic. This commitment
+                not only shows ethics but also innovation. Originality serves as my
+                guiding principle in any project, as it should.</p>
 
 
 
 
-            <h1 id="intellectual-propertyP">Intellectual-Property</h1>
-            <h3>What Are aesthetics?</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.</p>
-            <br>
-            <h3>I address this by...</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.</p>
-
-
-            <br>
-            <h1 id="ethicalP">Ethical</h1>
-            <h3>What Are aesthetics?</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.</p>
-            <br>
-            <h3>I address this by...</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.</p>
-
-            <br>
-            <h1 id="privacyP">Privacy</h1>
-            <h3>What Are aesthetics?</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.</p>
-            <br>
-            <h3>I address this by...</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.</p>
-
-            <br>
-            <h1 id="healthP">Health</h1>
-            <h3>What Are aesthetics?</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.</p>
-            <br>
-            <h3>I address this by...</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.</p>
-
-            <br>
-            <h1 id="socialP">Social</h1>
-            <h3>What Are aesthetics?</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.</p>
-            <br>
-            <h3>I address this by...</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.</p>
-
-            <h1 id="culturalP">Cultural</h1>
-            <h3>What Are aesthetics?</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.</p>
-            <br>
-            <h3>I address this by...</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.</p>
 
 
 
