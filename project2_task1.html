@@ -38,11 +38,12 @@
             <div id="loremIp" style="padding:50px 10px;width:49%; min-height: 150px;"> This was me making the basic
                 scaffolding for our project. Because Felix and Victor are quite new to python and pygame especially
                 creating an environment where it's easier to understand is the least I could do. Here we see me creating
-                the basic variables like colours, square_size, screen and biard. Also pyt some functions in that did
+                the basic variables like colours, square_size, screen and biard. Also put some functions in that did
                 nothing to show where my group should put their code. Making sure to add plenty of comments to let them
-                knwo what is going on </div>
+                know what is going on </div>
             <div class="polyimg" style="margin-top:-220.5px; float: right; width:49%; "><img
-                    src="./images/low-poly-first-design.jpg"></div>
+                    src="./images/scaffolding.png"></div>
+
 
 
 
@@ -63,65 +64,88 @@
 
 
     <script>
-        let slide = 1
+
+        let slide = 0
         function nextSlide() {
-            var title = document.getElementById('title')
-            var loremIp = document.getElementById('loremIp')
+            var title = document.getElementById('title');
+            var loremIp = document.getElementById('loremIp');
+            var image = document.getElementById('image-disp');
 
             if (slide === 0) {
-                slide++
-                //slide 1
-                title.innerText = "Testing"
-                loremIp.innerText = "I wanted to test wether the design was aesthetically pleasing in the eyes of other people. I got the advice and feedback form 3 people (Victor, Troy and Felix). Each of them individually had an opinion on what could be improved but that will be covered in the 'feedback' section."
-
-            } else if (slide === 3) {
-                slide -= 3;
-                //slide 0
-                title.innerText = "Development"
-                loremIp.innerText = "This is my first 2 point turnaround attempt.We see asassasin character on its side, its floating arm and a front facing view.There is a capelet to add personality to the design. Initially I wanted to add its dagger but after recieving feedback ultimatly decided agaisnt it and rather add it later in the design"
-
+                slide++;
+                // slide 1
+                title.innerText = "Development";
+                loremIp.innerText = "This was me making the basic scaffolding for our project. Because Felix and Victor are quite new to python and pygame especially creating an environment where it's easier to understand is the least I could do. Here we see me creating the basic variables like colours, square_size, screen and biard. Also put some functions in that did nothing to show where my group should put their code. Making sure to add plenty of comments to let them know what is going on ";
+                image.setAttribute('src', './images/scaffolding.png');
+            } else if (slide === 1) {
+                slide++;
+                // slide 2
+                title.innerText = "Testing";
+                loremIp.innerText = "I realized something wasn't quite right with the character's head because the front looked a little too thin, not really capturing the bold, blocky vibe I was aiming for with this assassin character. To address this, I made some changes. I scrapped my first idea, which felt squeezed, and instead tried for a more defined, rectangular shape. This change added a lot more character. this gives the assassin a stronger look and better design. This better matched my idea of the design.";
+                image.setAttribute('src', './images/head1.PNG');
             } else if (slide === 2) {
-                //slide 3
-                slide++
-                title.innerText = "Feedback"
-                loremIp.innerText = "I recieved some feedback regarding my original cloak design. Initially it would only cover the head and shoulders, but 3 people commented on how the cape should be removed as it takes away from the design and adds uneeded flair to a stealth character. From this feedback, in my final design a cloak will be not added."
-
+                slide++;
+                // slide 3
+                title.innerText = "Feedback - before";
+                loremIp.innerText = "Without even realizing it the back of the character's head kind of flattened out. I got the feefdback from two people who both agreed the flat shape on the back brought the whole design down. Every single vertice was kind of collapsing into the head which gave a really un-aesthetic vibe to the character. Thankfully the vertices were easily fixed into a better position as you can see in the following development page. For assisin character specifically the hood is critical so fixing the back of the cloak brough the design back to our original plan.";
+                image.setAttribute('src', './images/head2.PNG');
+            } else if (slide === 4) {
+                slide = 0;
+                // slide 0
+                title.innerText = "Improvements";
+                loremIp.innerText = "In summary the head's first design was both too narrow at the front and too flat from the side perspective. As each step explained there were only minor issues that could easily bechnanged by moving aorund some verttices rather than mojor design problems. Overall the design came out aesthetically pleasing and resembling a human.";
+                image.setAttribute('src', './images/head1.PNG');
+            } else if (slide === 2) {
+                slide = 1;
+                // slide 1
+                title.innerText = "Development";
+                loremIp.innerText = "In making my low poly character's head, I focused on building its shape using basic shapes like triangles and squares. I shaped each part, like the face and the smaller features such as the eyes and mouth(covered by a mask). imagine it like making a character with digital clay, except the clay is blocky. Although I didn't add colors, I still paid close attention to details to make sure the character looked realistic and interesting while maintaining the low poly design.";
+                image.setAttribute('src', './images/head5.PNG');
             } else {
-                slide++
-                //slide2
-                title.innerText = "improvements";
-                loremIp.innerText = "In summary, the two point turnaround was has a success form the start with minor things that could easily be changed in later stages of the design. Things like a cloak and dagger being added later in the design will not only save time but also reduce effort, work harder not smarter right?"
+                slide = 4;
+                // slide 4
+                title.innerText = "Feedback after";
+                loremIp.innerText = "By meticulously adjusting the vertices, I achieved a more aesthetically pleasing design. The rounded finish that has come as a result of this adjustment he creates a more lifelike impression of a hood filled by a head. This attention to detail not only improves the visual appeal but also adds to the overall 'realness'' of the design.";
+                image.setAttribute('src', './images/head4.PNG');
             }
-
-
         }
 
 
         function lastSlide() {
-            var title = document.getElementById('title')
-            var loremIp = document.getElementById('loremIp')
-            if (slide === 1) {
-                slide--;
-                //slide 3
-                title.innerText = "Feedback"
-                loremIp.innerText = "I recieved some feedback regarding my original cloak design. Initially it would only cover the head and shoulders, but 3 people commented on how the cape should be removed as it takes away from the design and adds uneeded flair to a stealth character. From this feedback, in my final design a cloak will be not added."
-            } else if (slide === 3) {
-                title.innerText = "improvements";
-                loremIp.innerText = "In summary, the two point turnaround was has a success form the start with minor things that could easily be changed in later stages of the design. Things like a cloak and dagger being added later in the design will not only save time but also reduce effort, work harder not smarter right?"
+            var title = document.getElementById('title');
+            var loremIp = document.getElementById('loremIp');
+            var image = document.getElementById('image-disp');
 
-
+            if (slide === 4) {
+                slide = 3;
+                // slide 3
+                title.innerText = "Feedback - before";
+                loremIp.innerText = "Without even realizing it the back of the character's head kind of flattened out. I got the feefdback from two people who both agreed the flat shape on the back brought the whole design down. Every single vertice was kind of collapsing into the head which gave an un-aesthetic design to the character. Thankfully the vertices were easily fixed into a better position as you can see in the following development page. For assisin character specifically the hood is critical so fixing the back of the cloak brough the design back to our original plan.";
+                image.setAttribute('src', './images/head2.PNG');
+            } else if (slide === 1) {
+                slide = 0;
+                // slide 0
+                title.innerText = "Improvements";
+                loremIp.innerText = "In summary the head's first design was both too narrow at the front and too flat from the side perspective. As each step explained there were only minor issues that could easily bechnanged by moving aorund some verttices rather than mojor design problems. Overall the design came out aesthetically pleasing and resembling a human."
+                image.setAttribute('src', './images/head1.PNG');
             } else if (slide === 2) {
-                slide--
-                //slide 1
-                title.innerText = "Testing"
-                loremIp.innerText = "I wanted to test wether the design was aesthetically pleasing. I got the advice and feedback form 3 people. Each of them individually had an opinion on what could be improved but that will be covered in the 'feedback' section."
-
+                slide = 1;
+                // slide 1
+                title.innerText = "Development";
+                loremIp.innerText = "In making my low poly character's head, I focused on building its shape using basic shapes like triangles and squares. I shaped each part, like the face and the smaller features such as the eyes and mouth(covered by a mask). imagine it like making a character with digital clay, except the clay is blocky. Although I didn't add colors, I still paid close attention to details to make sure the character looked realistic and interesting while maintaining the low poly design.";
+                image.setAttribute('src', './images/head5.PNG');
+            } else if (slide === 3) {
+                slide = 2;
+                // slide 2
+                title.innerText = "Testing";
+                loremIp.innerText = "I realized something wasn't quite right with the character's head because the front looked a little too thin, not really capturing the bold, blocky vibe I was aiming for with this assassin character. To address this, I made some changes. I scrapped my first idea, which felt squeezed, and instead tried for a more defined, rectangular shape. This change added a lot more character. this gives the assassin a stronger look and better design. This better matched my idea of the design.";
+                image.setAttribute('src', './images/head1.PNG');
             } else {
-                slide += 3
-                //slide 0
-                title.innerText = "Development"
-                loremIp.innerText = "This is my first 2 point turnaround attempt.We see asassasin character on its side, its floating arm and a front facing view.There is a capelet to add personality to the design. Initially I wanted to add its dagger but after recieving feedback ultimatly decided agaisnt it and rather add it later in the design"
-
+                slide = 4;
+                // slide 4
+                title.innerText = "Feedback after";
+                loremIp.innerText = "By meticulously adjusting the vertices, I achieved a more aesthetically pleasing design. The rounded finish that has come as a result of this adjustment he creates a more lifelike impression of a hood filled by a head. This attention to detail not only improves the visual appeal but also adds to the overall 'realness'' of the design.";
+                image.setAttribute('src', './images/head4.PNG');
             }
         }
 
