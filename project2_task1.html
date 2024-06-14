@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Portfolio</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+    </link>
+    <link rel="stylesheet" href="projects.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar">
+        <div class="dropdown">
+            <a href="#" class="dropbtn">Home</a>
+            <div class="dropdown-content">
+                <a href="index.html">Home</a>
+                <a href="project2_task2.html">Task 2</a>
+                <a href="project2_task3.html">Task 3</a>
+            </div>
+        </div>
+        <a href="">Project 3 <i class="fa fa-person-rays"></i></a>
+        <a href="https://github.com/Betsalely/Portfolio/tree/main" target="_blank">Github Repo <i
+                class="fa-brands fa-github"></i></a>
+    </div>
+    <div class="main">
+        <div class="start">
+            <h1>Task 1</h1>
+            <h2 id="title">Development</h2>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div id="loremIp" style="padding:50px 10px;width:49%; min-height: 150px;"> This was me making the basic
+                scaffolding for our project. Because Felix and Victor are quite new to python and pygame especially
+                creating an environment where it's easier to understand is the least I could do. Here we see me creating
+                the basic variables like colours, square_size, screen and biard. Also pyt some functions in that did
+                nothing to show where my group should put their code. Making sure to add plenty of comments to let them
+                knwo what is going on </div>
+            <div class="polyimg" style="margin-top:-220.5px; float: right; width:49%; "><img
+                    src="./images/low-poly-first-design.jpg"></div>
+
+
+
+
+
+
+        </div>
+
+
+
+
+    </div>
+    <button onclick="lastSlide()" class="arrow leftarrow"><i class="fa fa-arrow-left"></i></button>
+    <button onclick="nextSlide()" class="arrow rightarrow"><i class="fa fa-arrow-right"></i></button>
+
+
+
+
+
+    <script>
+        let slide = 1
+        function nextSlide() {
+            var title = document.getElementById('title')
+            var loremIp = document.getElementById('loremIp')
+
+            if (slide === 0) {
+                slide++
+                //slide 1
+                title.innerText = "Testing"
+                loremIp.innerText = "I wanted to test wether the design was aesthetically pleasing in the eyes of other people. I got the advice and feedback form 3 people (Victor, Troy and Felix). Each of them individually had an opinion on what could be improved but that will be covered in the 'feedback' section."
+
+            } else if (slide === 3) {
+                slide -= 3;
+                //slide 0
+                title.innerText = "Development"
+                loremIp.innerText = "This is my first 2 point turnaround attempt.We see asassasin character on its side, its floating arm and a front facing view.There is a capelet to add personality to the design. Initially I wanted to add its dagger but after recieving feedback ultimatly decided agaisnt it and rather add it later in the design"
+
+            } else if (slide === 2) {
+                //slide 3
+                slide++
+                title.innerText = "Feedback"
+                loremIp.innerText = "I recieved some feedback regarding my original cloak design. Initially it would only cover the head and shoulders, but 3 people commented on how the cape should be removed as it takes away from the design and adds uneeded flair to a stealth character. From this feedback, in my final design a cloak will be not added."
+
+            } else {
+                slide++
+                //slide2
+                title.innerText = "improvements";
+                loremIp.innerText = "In summary, the two point turnaround was has a success form the start with minor things that could easily be changed in later stages of the design. Things like a cloak and dagger being added later in the design will not only save time but also reduce effort, work harder not smarter right?"
+            }
+
+
+        }
+
+
+        function lastSlide() {
+            var title = document.getElementById('title')
+            var loremIp = document.getElementById('loremIp')
+            if (slide === 1) {
+                slide--;
+                //slide 3
+                title.innerText = "Feedback"
+                loremIp.innerText = "I recieved some feedback regarding my original cloak design. Initially it would only cover the head and shoulders, but 3 people commented on how the cape should be removed as it takes away from the design and adds uneeded flair to a stealth character. From this feedback, in my final design a cloak will be not added."
+            } else if (slide === 3) {
+                title.innerText = "improvements";
+                loremIp.innerText = "In summary, the two point turnaround was has a success form the start with minor things that could easily be changed in later stages of the design. Things like a cloak and dagger being added later in the design will not only save time but also reduce effort, work harder not smarter right?"
+
+
+            } else if (slide === 2) {
+                slide--
+                //slide 1
+                title.innerText = "Testing"
+                loremIp.innerText = "I wanted to test wether the design was aesthetically pleasing. I got the advice and feedback form 3 people. Each of them individually had an opinion on what could be improved but that will be covered in the 'feedback' section."
+
+            } else {
+                slide += 3
+                //slide 0
+                title.innerText = "Development"
+                loremIp.innerText = "This is my first 2 point turnaround attempt.We see asassasin character on its side, its floating arm and a front facing view.There is a capelet to add personality to the design. Initially I wanted to add its dagger but after recieving feedback ultimatly decided agaisnt it and rather add it later in the design"
+
+            }
+        }
+
+
+    </script>
+
+</body>
+
+</html>
