@@ -19,7 +19,7 @@
             <a href="#" class="dropbtn">Home</a>
             <div class="dropdown-content">
                 <a href="index.html">Home</a>
-                <a href="project2_task2.html">Task 2</a>
+                <a href="project2_task1.html">Task 1</a>
                 <a href="project2_task3.html">Task 3</a>
             </div>
         </div>
@@ -29,21 +29,23 @@
     </div>
     <div class="main">
         <div class="start">
-            <h1>Task 1</h1>
+            <h1>Task 2 - Floor moving</h1>
             <h2 id="title">Development</h2>
             <br>
             <br>
             <br>
             <br>
-            <div id="loremIp" style="padding:50px 10px;width:49%; min-height: 150px; font-size: 20px;"> This was me
-                making the basic
-                scaffolding for our project. Because Felix and Victor are quite new to python and pygame especially
-                creating an environment where it's easier to understand is the least I could do. Here we see me creating
-                the basic variables like colours, square_size, screen and biard. Also put some functions in that did
-                nothing to show where my group should put their code. Making sure to add plenty of comments to let them
-                know what is going on </div>
+            <div id="loremIp" style="padding:50px 10px;width:49%; min-height: 150px; font-size: 20px;"> With felix
+                making the floor a gradient it makes this step so much easier. The steps basically include making a
+                variable called floor_pattern. This variable is an array for the different R (RGB) values between 0 and
+                255 in increments of specific values based on how manty columns we have. It does this by making a one
+                line 'for' loop which is not easy to read for most beginner programmers,
+                but since this is the last tweak the floor requires it's fine. Then whenever the old create_floor()
+                function was called (now named draw_floor()) it would instead call the move_floor() function which
+                updates our floor pattern, and then redraws the floor with our new pattern. This guives the illusion
+                that the player is moving while in reality the player stays in the same x position the whole game.</div>
             <div class="polyimg" style="margin-top:-220.5px; float: right; width:49%; "><img
-                    src="./images/scaffolding.png" id="image-disp"></div>
+                    src="./images/moving_floors.png" id="image-disp"></div>
 
 
 
