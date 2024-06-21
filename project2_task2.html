@@ -35,15 +35,15 @@
             <br>
             <br>
             <br>
-            <div id="loremIp" style="padding:50px 10px;width:49%; min-height: 150px; font-size: 20px;"> With felix
-                making the floor a gradient it makes this step so much easier. The steps basically include making a
-                variable called floor_pattern. This variable is an array for the different R (RGB) values between 0 and
-                255 in increments of specific values based on how manty columns we have. It does this by making a one
-                line 'for' loop which is not easy to read for most beginner programmers,
-                but since this is the last tweak the floor requires it's fine. Then whenever the old create_floor()
-                function was called (now named draw_floor()) it would instead call the move_floor() function which
-                updates our floor pattern, and then redraws the floor with our new pattern. This guives the illusion
-                that the player is moving while in reality the player stays in the same x position the whole game.</div>
+            <div id="loremIp" style="padding:50px 10px;width:49%; min-height: 150px; font-size: 20px;">With felix making
+                the floor a gradient it makes this step so much easier. The steps basically include making a variable
+                called floor_pattern. This variable is an array for the different R (RGB) values between 0 and 255 in
+                increments of specific values based on how many columns we have. It does this by making a one line 'for'
+                loop which is not easy to read for most beginner programmers, but since this is the last tweak the floor
+                requires it's fine. Then whenever the old create_floor() function was called (now named draw_floor()) it
+                would instead call the move_floor() function which updates our floor pattern, and then redraws the floor
+                with our new pattern. This gives the illusion that the player is moving while in reality the player
+                stays in the same x position the whole game.</div>
             <div class="polyimg" style="margin-top:-220.5px; float: right; width:49%; "><img
                     src="./images/moving_floors.png" id="image-disp"></div>
 
@@ -78,20 +78,20 @@
                 slide++;
                 // slide 1
                 title.innerText = "Development";
-                loremIp.innerText = " With felix making the floor a gradient it makes this step so much easier. The steps basically include making a variable called floor_pattern. This variable is an array for the different R (RGB) values between 0 and 255 in increments of specific values based on how manty columns we have. It does this by making a one line 'for' loop which is not easy to read for most beginner programmers, but since this is the last tweak the floor requires it's fine. Then whenever the old create_floor() function was called (now named draw_floor()) it would instead call the move_floor() function which updates our floor pattern, and then redraws the floor with our new pattern. This guives the illusion that the player is moving while in reality the player stays in the same x position the whole game.";
+                loremIp.innerText = "With felix making the floor a gradient it makes this step so much easier. The steps basically include making a variable called floor_pattern. This variable is an array for the different R (RGB) values between 0 and 255 in increments of specific values based on how many columns we have. It does this by making a one line 'for' loop which is not easy to read for most beginner programmers, but since this is the last tweak the floor requires it's fine. Then whenever the old create_floor() function was called (now named draw_floor()) it would instead call the move_floor() function which updates our floor pattern, and then redraws the floor with our new pattern. This gives the illusion that the player is moving while in reality the player stays in the same x position the whole game.";
                 image.setAttribute('src', './images/moving_floors.png');
             } else if (slide === 1) {
                 slide++;
                 // slide 2
                 title.innerText = "Testing";
-                loremIp.innerText = "The goal with the scaffolding was to make it as easy as possible for my group to read and understand what is happening. A way to test that is simply by asking them if everything is laid out clearly and they know where to work based on our Github Projects page. They did understand where they work but did not know how to write the code. Their advice was to have some example code in comments on how to draw a square in pygame, and then I'd personally teach them how to integrate this method with for loops. ";
+                loremIp.innerText = "The only way to test a visual code like this is to run it. When I did it seemed to work perfectly almost immediatley. I ran the program for about 30 seconds and there seemed to be no issues. This function was straight forward and while the solution did require some clever coding and array manipulation. A lot of the code relies on the 'floor_pattern = [((col * 18)%256,0,0) for col in range(col_count)]'. This lines just makes an array of different rgb values from black to red depending on how many columns there are. Then the floor moving is literally just changing that array around. While some of the syntax may look a bit confusing since this is the last piece of code to do with this area its fine It won't need further changes.";
                 image.setAttribute('src', './images/moving_floor_testing.png');
             } else if (slide === 2) {
                 slide = 0;
                 // slide 0
                 title.innerText = "Improvements";
-                loremIp.innerText = "In summary the head's first design was both too narrow at the front and too flat from the side perspective. As each step explained there were only minor issues that could easily bechnanged by moving aorund some verttices rather than mojor design problems. Overall the design came out aesthetically pleasing and resembling a human.";
-                image.setAttribute('src', './images/moving_floors.png');
+                loremIp.innerText = "In summary we hit the nail on the head with this one. there were no apparent issues and even with death detection (task 3) it works pefectly. There were no required changes or improvements made. ";
+                image.setAttribute('src', './images/moving_floor_testing.png');
             }
         }
 
@@ -105,19 +105,19 @@
                 slide = 2;
                 // slide 0
                 title.innerText = "Improvements";
-                loremIp.innerText = "In summary the head's first design was both too narrow at the front and too flat from the side perspective. As each step explained there were only minor issues that could easily bechnanged by moving aorund some verttices rather than mojor design problems. Overall the design came out aesthetically pleasing and resembling a human."
-                image.setAttribute('src', './images/moving_floors.png');
+                loremIp.innerText = "In summary we hit the nail on the head with this one. there were no apparent issues and even with death detection (task 3) it works pefectly. There were no required changes or improvements made. "
+                image.setAttribute('src', './images/moving_floor_testing.png');
             } else if (slide === 2) {
                 slide = 1;
                 // slide 2
                 title.innerText = "Testing";
-                loremIp.innerText = "The goal with the scaffolding was to make it as easy as possible for my group to read and understand what is happening. A way to test that is simply by asking them if everything is laid out clearly and they know where to work based on our Github Projects page. They did understand where they work but did not know how to write the code. Their advice was to have some example code in comments on how to draw a square in pygame, and then I'd personally teach them how to integrate this method with for loops.";
+                loremIp.innerText = "The only way to test a visual code like this is to run it. When I did it seemed to work perfectly almost immediatley. I ran the program for about 30 seconds and there seemed to be no issues. This function was straight forward and while the solution did require some clever coding and array manipulation. A lot of the code relies on the 'floor_pattern = [((col * 18)%256,0,0) for col in range(col_count)]'. This lines just makes an array of different rgb values from black to red depending on how many columns there are. Then the floor moving is literally just changing that array around. While some of the syntax may look a bit confusing since this is the last piece of code to do with this area its fine It won't need further changes.";
                 image.setAttribute('src', './images/moving_floor_testing.png');
             } else if (slide === 1) {
                 slide = 0;
                 // slide 1
                 title.innerText = "Development";
-                loremIp.innerText = "With felix making the floor a gradient it makes this step so much easier. The steps basically include making a variable called floor_pattern. This variable is an array for the different R (RGB) values between 0 and 255 in increments of specific values based on how manty columns we have. It does this by making a one line 'for' loop which is not easy to read for most beginner programmers, but since this is the last tweak the floor requires it's fine. Then whenever the old create_floor() function was called (now named draw_floor()) it would instead call the move_floor() function which updates our floor pattern, and then redraws the floor with our new pattern. This guives the illusion that the player is moving while in reality the player stays in the same x position the whole game.";
+                loremIp.innerText = "With felix making the floor a gradient it makes this step so much easier. The steps basically include making a variable called floor_pattern. This variable is an array for the different R (RGB) values between 0 and 255 in increments of specific values based on how many columns we have. It does this by making a one line 'for' loop which is not easy to read for most beginner programmers, but since this is the last tweak the floor requires it's fine. Then whenever the old create_floor() function was called (now named draw_floor()) it would instead call the move_floor() function which updates our floor pattern, and then redraws the floor with our new pattern. This gives the illusion that the player is moving while in reality the player stays in the same x position the whole game.";
                 image.setAttribute('src', './images/moving_floors.png');
             }
         }
