@@ -29,23 +29,23 @@
     </div>
     <div class="main">
         <div class="start">
-            <h1>Task 2 - Floor moving</h1>
+            <h1>Task 2 - Death Detection</h1>
             <h2 id="title">Development</h2>
             <br>
             <br>
             <br>
             <br>
-            <div id="loremIp" style="padding:50px 10px;width:49%; min-height: 150px; font-size: 20px;">With felix making
-                the floor a gradient it makes this step so much easier. The steps basically include making a variable
-                called floor_pattern. This variable is an array for the different R (RGB) values between 0 and 255 in
-                increments of specific values based on how many columns we have. It does this by making a one line 'for'
-                loop which is not easy to read for most beginner programmers, but since this is the last tweak the floor
-                requires it's fine. Then whenever the old create_floor() function was called (now named draw_floor()) it
-                would instead call the move_floor() function which updates our floor pattern, and then redraws the floor
-                with our new pattern. This gives the illusion that the player is moving while in reality the player
-                stays in the same x position the whole game.</div>
+            <div id="loremIp" style="padding:50px 10px;width:49%; min-height: 150px; font-size: 20px;">Death detection
+                is a vital part of any video game. There needs to be stakes. For our game we needed two ways to die, one
+                being touching the floor and the other being touching the columns. In theory this requires two simple
+                checks. One check sees if when the columns is being drawn on the same x position of the bird, the bird
+                and the red squares are being drawn on the same block. This is easy enough as the player has a constant
+                x position (the y position changes). The other check would simply be if the player_pos variable is above
+                a certain number. Why would it be above? Due to the way we generated our grid the top left square has an
+                index of (0,0). This means that when the player is closer to the bottom its y posotion is higher. If it
+                is too high it means it is touching the floor. </div>
             <div class="polyimg" style="margin-top:-220.5px; float: right; width:49%; "><img
-                    src="./images/moving_floors.png" id="image-disp"></div>
+                    src="./images/death_detect_development.png" id="image-disp"></div>
 
 
 
