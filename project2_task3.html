@@ -20,7 +20,7 @@
             <div class="dropdown-content">
                 <a href="index.html">Home</a>
                 <a href="project2_task1.html">Task 1</a>
-                <a href="project2_task3.html">Task 3</a>
+                <a href="project2_task2.html">Task 2</a>
             </div>
         </div>
         <a href="">Project 3 <i class="fa fa-person-rays"></i></a>
@@ -40,10 +40,8 @@
                 being touching the floor and the other being touching the columns. In theory this requires two simple
                 checks. One check sees if when the columns is being drawn on the same x position of the bird, the bird
                 and the red squares are being drawn on the same block. This is easy enough as the player has a constant
-                x position (the y position changes). The other check would simply be if the player_pos variable is above
-                a certain number. Why would it be above? Due to the way we generated our grid the top left square has an
-                index of (0,0). This means that when the player is closer to the bottom its y posotion is higher. If it
-                is too high it means it is touching the floor. </div>
+                x position (the y position changes). The other check would simply be if the player_pos variable is below
+                a certain number. </div>
             <div class="polyimg" style="margin-top:-220.5px; float: right; width:49%; "><img
                     src="./images/death_detect_development.png" id="image-disp"></div>
 
@@ -78,20 +76,20 @@
                 slide++;
                 // slide 1
                 title.innerText = "Development";
-                loremIp.innerText = "With felix making the floor a gradient it makes this step so much easier. The steps basically include making a variable called floor_pattern. This variable is an array for the different R (RGB) values between 0 and 255 in increments of specific values based on how many columns we have. It does this by making a one line 'for' loop which is not easy to read for most beginner programmers, but since this is the last tweak the floor requires it's fine. Then whenever the old create_floor() function was called (now named draw_floor()) it would instead call the move_floor() function which updates our floor pattern, and then redraws the floor with our new pattern. This gives the illusion that the player is moving while in reality the player stays in the same x position the whole game.";
-                image.setAttribute('src', './images/moving_floors.png');
+                loremIp.innerText = "Death detection is a vital part of any video game. There needs to be stakes. For our game we needed two ways to die, one being touching the floor and the other being touching the columns. In theory this requires two simple checks. One check sees if when the columns is being drawn on the same x position of the bird, the bird and the red squares are being drawn on the same block. This is easy enough as the player has a constant x position (the y position changes). The other check would simply be if the player_pos variable is below a certain number.";
+                image.setAttribute('src', './images/death_detect_development.png');
             } else if (slide === 1) {
                 slide++;
                 // slide 2
                 title.innerText = "Testing";
-                loremIp.innerText = "The only way to test a visual code like this is to run it. When I did it seemed to work perfectly almost immediatley. I ran the program for about 30 seconds and there seemed to be no issues. This function was straight forward and while the solution did require some clever coding and array manipulation. A lot of the code relies on the 'floor_pattern = [((col * 18)%256,0,0) for col in range(col_count)]'. This lines just makes an array of different rgb values from black to red depending on how many columns there are. Then the floor moving is literally just changing that array around. While some of the syntax may look a bit confusing since this is the last piece of code to do with this area its fine It won't need further changes.";
-                image.setAttribute('src', './images/moving_floor_testing.png');
+                loremIp.innerText = "On the first test we had to see if it could handle column colisions. It seemed genereally ok, it could handle all the column deaths on every single run. we tried dying at the top, in the middle, at the bottom. They all seemed to work out so the input od crashing into a wall, gave the expected output of dying. The second thing we tested was floor deaths. We tried to let our character fal, until until it touched the floor and unfortunatly this did not give the expected outcome. Instead of dying the player sort of slid on the floor. This was very unusual and at first we could not figure out why this was happening; it took a moment of frustration to figure out that the player now died when it went too high up. The third test we conducted was to see if the player could survive gounig through the gap. The input of not crashing produced the expected ouput of not dying.";
+                image.setAttribute('src', './images/death_detection_test.png');
             } else if (slide === 2) {
                 slide = 0;
                 // slide 0
                 title.innerText = "Improvements";
-                loremIp.innerText = "In summary we hit the nail on the head with this one. There were no apparent issues and even with death detection (task 3) it works pefectly. There were no required changes or improvements made. ";
-                image.setAttribute('src', './images/moving_floor_testing.png');
+                loremIp.innerText = "The player now died when it touched the ceiling which was very wrong. The solution to this problem was simoly to remeber how the screen/grid was generated. Due to the way we generated our grid the top left square has an index of (0,0). This means that when the player is closer to the bottom its y position is higher. this is why in our original code when we said (if current_pos <= 2:) it checked if we were closer to the roof rather than the floor. To fix this we simply make it (if current_pos >= 16:). For the sake of time this resulted in the input of falling to the floor outputtting the expected result of dying.";
+                image.setAttribute('src', './images/death_detection_improvements.png');
             }
         }
 
@@ -105,20 +103,20 @@
                 slide = 2;
                 // slide 0
                 title.innerText = "Improvements";
-                loremIp.innerText = "In summary we hit the nail on the head with this one. There were no apparent issues and even with death detection (task 3) it works pefectly. There were no required changes or improvements made. "
-                image.setAttribute('src', './images/moving_floor_testing.png');
+                loremIp.innerText = "The player now died when it touched the ceiling which was very wrong. The solution to this problem was simoly to remeber how the screen/grid was generated. Due to the way we generated our grid the top left square has an index of (0,0). This means that when the player is closer to the bottom its y position is higher. this is why in our original code when we said (if current_pos <= 2:) it checked if we were closer to the roof rather than the floor. To fix this we simply make it (if current_pos >= 16:). For the sake of time this resulted in the input of falling to the floor outputtting the expected result of dying."
+                image.setAttribute('src', './images/death_detection_improvements.png');
             } else if (slide === 2) {
                 slide = 1;
                 // slide 2
                 title.innerText = "Testing";
-                loremIp.innerText = "The only way to test a visual code like this is to run it. When I did it seemed to work perfectly almost immediatley. I ran the program for about 30 seconds and there seemed to be no issues. This function was straight forward and while the solution did require some clever coding and array manipulation. A lot of the code relies on the 'floor_pattern = [((col * 18)%256,0,0) for col in range(col_count)]'. This lines just makes an array of different rgb values from black to red depending on how many columns there are. Then the floor moving is literally just changing that array around. While some of the syntax may look a bit confusing since this is the last piece of code to do with this area its fine It won't need further changes.";
-                image.setAttribute('src', './images/moving_floor_testing.png');
+                loremIp.innerText = "On the first test we had to see if it could handle column colisions. It seemed genereally ok, it could handle all the column deaths on every single run. we tried dying at the top, in the middle, at the bottom. They all seemed to work out so the input od crashing into a wall, gave the expected output of dying. The second thing we tested was floor deaths. We tried to let our character fal, until until it touched the floor and unfortunatly this did not give the expected outcome. Instead of dying the player sort of slid on the floor. This was very unusual and at first we could not figure out why this was happening; it took a moment of frustration to figure out that the player now died when it went too high up. The third test we conducted was to see if the player could survive gounig through the gap. The input of not crashing produced the expected ouput of not dying.";
+                image.setAttribute('src', './images/death_detection_test.png');
             } else if (slide === 1) {
                 slide = 0;
                 // slide 1
                 title.innerText = "Development";
-                loremIp.innerText = "With felix making the floor a gradient it makes this step so much easier. The steps basically include making a variable called floor_pattern. This variable is an array for the different R (RGB) values between 0 and 255 in increments of specific values based on how many columns we have. It does this by making a one line 'for' loop which is not easy to read for most beginner programmers, but since this is the last tweak the floor requires it's fine. Then whenever the old create_floor() function was called (now named draw_floor()) it would instead call the move_floor() function which updates our floor pattern, and then redraws the floor with our new pattern. This gives the illusion that the player is moving while in reality the player stays in the same x position the whole game.";
-                image.setAttribute('src', './images/moving_floors.png');
+                loremIp.innerText = "Death detection is a vital part of any video game. There needs to be stakes. For our game we needed two ways to die, one being touching the floor and the other being touching the columns. In theory this requires two simple checks. One check sees if when the columns is being drawn on the same x position of the bird, the bird and the red squares are being drawn on the same block. This is easy enough as the player has a constant x position (the y position changes). The other check would simply be if the player_pos variable is below a certain number.";
+                image.setAttribute('src', './images/death_detect_development.png');
             }
         }
 
